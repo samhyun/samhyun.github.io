@@ -1,0 +1,37 @@
+---
+import { SITE_TITLE, NAV_ITEMS } from '../consts';
+import ThemeToggle from './ThemeToggle.astro';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-border/50 bg-surface/70 backdrop-blur-xl dark:border-border-dark/50 dark:bg-surface-dark/70">
+  <nav class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
+    <a href="/" class="group flex items-center gap-2 text-lg font-bold text-text dark:text-text-dark">
+      <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-xs font-bold text-white transition-transform group-hover:scale-110">
+        S
+      </span>
+      <span class="transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400">
+        {SITE_TITLE}
+      </span>
+    </a>
+
+    <div class="flex items-center gap-1">
+      {NAV_ITEMS.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'relative rounded-lg px-3 py-1.5 text-sm font-medium transition-all',
+            currentPath.startsWith(item.href)
+              ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900/20'
+              : 'text-text-muted hover:text-text hover:bg-gray-50 dark:text-text-muted-dark dark:hover:text-text-dark dark:hover:bg-gray-800/50',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="ml-2 h-5 w-px bg-border dark:bg-border-dark" />
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>

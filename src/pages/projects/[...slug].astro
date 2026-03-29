@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={project.data.title} description={project.data.description}>
+  <article>
+    <header class="mb-8">
+      <a href="/projects" class="mb-4 inline-block text-sm text-primary-600 hover:underline dark:text-primary-400">
+        &larr; 프로젝트 목록
+      </a>
+      <h1 class="text-3xl font-bold">{project.data.title}</h1>
+      <p class="mt-2 text-text-muted dark:text-text-muted-dark">{project.data.description}</p>
+
+      <div class="mt-4 grid grid-cols-2 gap-4 rounded-lg border border-border p-4 dark:border-border-dark">
+        <div>
+          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark">역할</p>
+          <p class="mt-1 font-medium">{project.data.role}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark">기간</p>
+          <p class="mt-1 font-medium">{project.data.period}</p>
+        </div>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        {project.data.techStack.map((tech) => (
+          <span class="rounded-full bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      {project.data.highlights.length > 0 && (
+        <div class="mt-4">
+          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark mb-2">주요 성과</p>
+          <ul class="space-y-1">
+            {project.data.highlights.map((h) => (
+              <li class="text-sm flex items-start gap-2">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
+                {h}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE_AUTHOR } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
+
+const categoryLabels: Record<string, string> = {
+  spring: 'Spring',
+  aws: 'AWS',
+  ai: 'AI',
+  testing: 'Test',
+  devops: 'DevOps',
+  etc: 'Etc',
+};
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="relative py-16 md:py-24">
+    <!-- Decorative blobs -->
+    <div class="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-primary-400/10 blur-3xl dark:bg-primary-600/10" aria-hidden="true" />
+    <div class="pointer-events-none absolute -bottom-10 -right-20 h-56 w-56 rounded-full bg-accent-400/10 blur-3xl dark:bg-accent-600/10" aria-hidden="true" />
+
+    <div class="relative">
+      <p class="animate-fade-in mb-3 text-sm font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400">
+        Software Engineer
+      </p>
+      <h1 class="animate-fade-in-up mb-5 text-5xl font-extrabold tracking-tight md:text-6xl">
+        <span class="gradient-text">{SITE_AUTHOR}</span>
+      </h1>
+      <p class="animate-fade-in-up mb-8 max-w-lg text-lg leading-relaxed text-text-muted dark:text-text-muted-dark" style="animation-delay: 100ms">
+        작동하는 코드보다 왜 그렇게 만들었는지에 관심이 많습니다.<br />
+        Spring 백엔드, 클라우드 인프라, AI 챗봇 — 만들면서 배운 것들을 기록합니다.
+      </p>
+      <div class="animate-fade-in-up flex gap-3" style="animation-delay: 200ms">
+        <a
+          href="/projects"
+          class="group inline-flex items-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary-500/25 transition-all hover:bg-primary-700 hover:shadow-primary-500/40 hover:-translate-y-0.5"
+        >
+          프로젝트 보기
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+        </a>
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-2.5 text-sm font-semibold text-text transition-all hover:bg-gray-50 hover:-translate-y-0.5 dark:border-border-dark dark:text-text-dark dark:hover:bg-gray-800/50"
+        >
+          블로그 읽기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="py-10">
+    <h2 class="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-text-muted dark:text-text-muted-dark">
+      Tech Stack
+    </h2>
+    <div class="stagger-children flex flex-wrap gap-2">
+      {[
+        { name: 'Spring Boot', color: 'bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400' },
+        { name: 'Kotlin', color: 'bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-400' },
+        { name: 'Java', color: 'bg-orange-50 text-orange-700 dark:bg-orange-900/20 dark:text-orange-400' },
+        { name: 'Python', color: 'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400' },
+        { name: 'AWS', color: 'bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400' },
+        { name: 'GCP', color: 'bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400' },
+        { name: 'Docker', color: 'bg-cyan-50 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-400' },
+        { name: 'Terraform', color: 'bg-violet-50 text-violet-700 dark:bg-violet-900/20 dark:text-violet-400' },
+        { name: 'PostgreSQL', color: 'bg-sky-50 text-sky-700 dark:bg-sky-900/20 dark:text-sky-400' },
+        { name: 'Redis', color: 'bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400' },
+        { name: 'LangChain', color: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400' },
+        { name: 'RAG', color: 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-400' },
+      ].map((tech) => (
+        <span class:list={['rounded-lg px-3 py-1.5 text-sm font-medium transition-transform hover:scale-105', tech.color]}>
+          {tech.name}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <!-- Recent Posts -->
+  <section class="py-10">
+    <div class="mb-6 flex items-center justify-between">
+      <h2 class="text-xl font-bold">Recent Posts</h2>
+      <a href="/blog" class="group inline-flex items-center gap-1 text-sm font-medium text-primary-600 dark:text-primary-400">
+        모두 보기
+        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+    <div class="stagger-children space-y-3">
+      {posts.map((post) => (
+        <a href={`/blog/${post.id}`} class="group block rounded-xl border border-border bg-surface p-4 transition-all hover:border-primary-200 hover:bg-primary-50/30 hover:-translate-y-0.5 hover:shadow-sm dark:border-border-dark dark:bg-surface-alt-dark dark:hover:border-primary-800 dark:hover:bg-primary-900/10">
+          <div class="flex items-start justify-between gap-4">
+            <div class="min-w-0">
+              <div class="mb-1 flex items-center gap-2">
+                <span class="inline-block rounded-md bg-gray-100 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-text-muted dark:bg-gray-800 dark:text-text-muted-dark">
+                  {categoryLabels[post.data.category]}
+                </span>
+                <time class="text-xs text-text-muted dark:text-text-muted-dark" datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+              </div>
+              <h3 class="font-semibold group-hover:text-primary-600 dark:group-hover:text-primary-400 truncate">
+                {post.data.title}
+              </h3>
+              <p class="mt-1 text-sm text-text-muted dark:text-text-muted-dark line-clamp-1">
+                {post.data.description}
+              </p>
+            </div>
+            <svg class="mt-2 h-5 w-5 shrink-0 text-text-muted/40 transition-all group-hover:text-primary-500 group-hover:translate-x-1 dark:text-text-muted-dark/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+    {posts.length === 0 && (
+      <p class="text-text-muted dark:text-text-muted-dark">아직 작성된 글이 없습니다.</p>
+    )}
+  </section>
+</BaseLayout>
