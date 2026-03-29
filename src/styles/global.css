@@ -252,3 +252,18 @@ body {
 .prose hr {
   @apply border-border dark:border-border-dark my-8;
 }
+
+/* Mermaid 차트 스타일 */
+.prose .mermaid {
+  @apply my-6 flex justify-center rounded-xl border border-gray-200 dark:border-gray-700/60 p-6;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.dark .prose .mermaid {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}

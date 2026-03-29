@@ -3,6 +3,7 @@ title: 'Google ADK 이력서 분석·생성 자동화 도구'
 description: '이력서 파싱부터 품질 분석, STAR 인터뷰, 보완, 최종 생성까지 자동화된 에이전트 파이프라인. 자기소개서 생성 서비스 포함.'
 period: '2025 — 현재'
 role: '풀스택 개발자 (개인)'
+type: personal
 techStack: ['Kotlin', 'Python', 'Spring Boot 4.0', 'Google ADK', 'PostgreSQL']
 highlights:
   - '이력서 파싱→품질 분석→STAR 인터뷰→보완→최종 생성 자동화 파이프라인'

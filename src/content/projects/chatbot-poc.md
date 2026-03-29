@@ -3,11 +3,11 @@ title: 'AI 챗봇 POC — 도입 검증부터 프로덕션 진입까지'
 description: 'AI 챗봇 시스템의 기획부터 기술 검증, 아키텍처 설계, 서버 개발, 성능 테스트까지 3단계에 걸친 POC 전 과정을 주도했습니다.'
 period: '2023.09 — 2023.12'
 role: '백엔드 TechLead'
+type: personal
 techStack: ['Spring Boot', 'Python', 'LangChain', 'AWS', 'Docker']
 highlights:
   - '3단계 POC를 통한 AI 챗봇 도입 타당성 및 기술적 실현 가능성 검증'
   - '성능 테스트를 통한 프로덕션 진입 기준 충족 확인'
-  - 'POC 결과를 기반으로 LGES AI 챗봇 본 프로젝트 확정'
 order: 14
 ---
 
@@ -36,4 +36,4 @@ AI 챗봇 시스템의 도입 타당성을 검증하기 위해 3단계에 걸친
 
 ## 결과
 
-POC를 통해 기술적 실현 가능성과 비즈니스 가치를 검증하였고, 이를 기반으로 본격적인 LGES AI 챗봇 프로젝트로 확장되었습니다.
+POC를 통해 기술적 실현 가능성과 비즈니스 가치를 검증했다.

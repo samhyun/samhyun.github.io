@@ -10,6 +10,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     category: z.enum(['spring', 'aws', 'ai', 'testing', 'devops', 'etc']),
     tags: z.array(z.string()).default([]),
+    featured: z.boolean().default(false),
     draft: z.boolean().default(false),
   }),
 });
@@ -23,6 +24,7 @@ const projects = defineCollection({
     role: z.string(),
     techStack: z.array(z.string()),
     highlights: z.array(z.string()).default([]),
+    type: z.enum(['work', 'personal']).default('work'),
     order: z.number().default(0),
   }),
 });

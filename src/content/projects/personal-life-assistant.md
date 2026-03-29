@@ -3,6 +3,7 @@ title: 'Google ADK 생활 비서 챗봇'
 description: '건강 기록, 일정 관리, 회고 등 개인 생활 전반을 지원하는 AI 멀티 에이전트 챗봇. 계층적 에이전트 아키텍처와 시맨틱 메모리 검색을 적용했습니다.'
 period: '2025 — 현재'
 role: '풀스택 개발자 (개인)'
+type: personal
 techStack: ['Kotlin', 'Python 3.12', 'Spring Boot 4.0 (WebFlux)', 'Google ADK', 'PostgreSQL (pgvector)', 'R2DBC', 'Keycloak', 'Swift (iOS)']
 highlights:
   - 'Router → LifeAgent + ReflectAgent 계층적 에이전트 아키텍처 설계'
