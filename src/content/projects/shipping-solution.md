@@ -13,7 +13,7 @@ order: 11
 
 자체 해운 솔루션 프로젝트에서 항해 견적(Estimation) 자동 계산을 위한 API 및 UI를 개발했습니다.
 
-## 주요 기여
+## 성과
 
 - Back-end: Java, Spring 기반 견적 계산 API 개발
 - Front-end: JavaScript, jQuery, Knockout.js 활용 화면 개발

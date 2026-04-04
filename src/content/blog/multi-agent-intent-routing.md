@@ -76,7 +76,7 @@ IntentAgent의 가장 중요한 원칙은 **"키워드보다 대화 맥락이 �
 6. 매우 짧은 메시지("price?", "compare?")는 대화 맥락으로 판단
 ```
 
-핵심은 **2~3번**이다. 에이전트가 "프로젝트 위치가 어디인가요?"라고 물었는데 사용자가 "Seoul"이라고 답하면 이 단어 자체로는 `DEALER_RECOMMENDATION`일 수도 있다. 하지만 견적 질문의 답변이므로 `QUOTATION_CONSULTATION`으로 분류해야 한다.
+핵심은 **2\~3번**이다. 에이전트가 "프로젝트 위치가 어디인가요?"라고 물었는데 사용자가 "Seoul"이라고 답하면 이 단어 자체로는 `DEALER_RECOMMENDATION`일 수도 있다. 하지만 견적 질문의 답변이므로 `QUOTATION_CONSULTATION`으로 분류해야 한다.
 
 ---
 
@@ -210,3 +210,9 @@ GPT-4o-mini로 Intent 분류를 했을 때 정확도가 약 85%였다. 특히 RE
 ## 참고
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 다음: [멀티 에이전트 챗봇의 SSE 스트리밍 아키텍처](/blog/multi-agent-sse-streaming-webflux)

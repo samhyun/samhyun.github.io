@@ -7,7 +7,7 @@ tags: ['querydsl', 'spring-data', 'jpa', 'dynamic-query']
 draft: false
 ---
 
-목록 조회 API를 만들다 보면 검색 조건이 늘어날 때마다 `if (param != null)` 분기가 쌓인다. Spring Data JPA의 `@QuerydslPredicate`를 쓰면 요청 파라미터에서 `Predicate`를 자동 생성할 수 있는데 기본 동작만으로는 날짜 범위나 like 검색 같은 조건을 처리하기 어렵다. 타입 기반 커스터마이징으로 이 문제를 해결한 과정을 정리한다.
+목록 조회 API를 만들다 보면 검색 조건이 늘어날 때마다 `if (param != null)` 분기가 쌓인다. 코드도 복잡해지고 날짜 범위나 like 검색처럼 단순 equals로는 처리 불가능한 조건들이 늘어난다. Spring Data JPA의 `@QuerydslPredicate`를 쓰면 요청 파라미터에서 `Predicate`를 자동 생성할 수 있는데 기본 동작만으로는 이런 복잡한 조건을 처리하기 어렵다. 타입 기반 커스터마이징으로 이 문제를 해결한 과정을 정리한다.
 
 ## 1. QuerydslPredicate로 조건문 생성
 

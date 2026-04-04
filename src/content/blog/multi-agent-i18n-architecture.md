@@ -188,3 +188,9 @@ ADK 공식 문서에서 `instructionProvider`는 Python/TypeScript에서는 명�
 ## 참고
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [멀티 에이전트 챗봇의 메시지 그룹핑 스키마 설계](/blog/multi-agent-message-grouping-schema)

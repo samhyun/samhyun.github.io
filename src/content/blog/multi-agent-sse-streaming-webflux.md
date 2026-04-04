@@ -13,7 +13,7 @@ draft: false
 
 ## 문제 정의
 
-멀티 에이전트 챗봇 시스템에서 사용자가 메시지를 보내면 5~10개의 에이전트가 동시에 응답을 생성한다. 핵심 과제는 다음과 같다.
+멀티 에이전트 챗봇 시스템에서 사용자가 메시지를 보내면 5\~10개의 에이전트가 동시에 응답을 생성한다. 핵심 과제는 다음과 같다.
 
 - **실시간 전달**: 모든 응답을 기다리지 말고 각 에이전트 응답이 나오는 즉시 클라이언트에 전달
 - **메타데이터 필터링**: 토큰 수, 모델 정보 같은 메타데이터는 DB에 로깅하되 프론트엔드로는 보내면 안됨
@@ -218,7 +218,7 @@ public class AiAgentClient implements AiAgentPort {
 
 ## 주의사항
 
-1. **SSE 타임아웃**: 응답 타임아웃을 65초로 설정한다. 복잡한 쿼리는 30~60초 소요된다.
+1. **SSE 타임아웃**: 응답 타임아웃을 65초로 설정한다. 복잡한 쿼리는 30\~60초 소요된다.
 
 2. **R2DBC vs JPA**: WebFlux에서는 JPA 사용이 불가능하다. R2DBC 또는 `subscribeOn(Schedulers.boundedElastic())`으로 블로킹 호출을 감싸야 한다.
 
@@ -234,3 +234,10 @@ public class AiAgentClient implements AiAgentPort {
 
 - [Spring WebFlux Reference](https://docs.spring.io/spring-framework/reference/web/webflux.html)
 - [Server-Sent Events — MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [LLM 멀티 에이전트 시스템의 Intent 라우팅 설계](/blog/multi-agent-intent-routing)
+- 다음: [Milvus 파티션 기반 Multi-Source RAG 설계](/blog/multi-agent-rag-dual-source)

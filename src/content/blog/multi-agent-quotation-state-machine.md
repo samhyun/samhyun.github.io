@@ -202,10 +202,10 @@ QUOTATION IN PROGRESS:
 
 | 지표 | 단일 에이전트 | 상태 머신 |
 |---|---|---|
-| 견적 완료율 | ~45% | ~78% |
-| 평균 수집 턴 수 | 6~8턴 (중복 질문 포함) | 3~4턴 |
-| 중복 질문 비율 | ~30% | ~5% |
-| 수집 완료 판단 정확도 | ~70% | ~92% |
+| 견적 완료율 | \~45% | \~78% |
+| 평균 수집 턴 수 | 6\~8턴 (중복 질문 포함) | 3\~4턴 |
+| 중복 질문 비율 | \~30% | \~5% |
+| 수집 완료 판단 정확도 | \~70% | \~92% |
 
 상태 머신 패턴의 핵심은 **"지금 어디에 있는지"를 명확히 아는 것**이다. 각 에이전트가 자신의 역할에만 집중하고 상태 전환은 라우터가 전담하는 구조가 복잡한 멀티 턴 워크플로우에서 효과적이었다.
 
@@ -215,3 +215,10 @@ QUOTATION IN PROGRESS:
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
 - [State Pattern — Refactoring Guru](https://refactoring.guru/design-patterns/state)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [Milvus 파티션 기반 Multi-Source RAG 설계](/blog/multi-agent-rag-dual-source)
+- 다음: [멀티 에이전트 챗봇의 응답 품질 개선](/blog/multi-agent-feedback-quality-improvement)

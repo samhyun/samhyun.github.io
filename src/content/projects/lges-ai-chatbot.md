@@ -13,13 +13,13 @@ order: 1
 
 ## 프로젝트 개요
 
-LG Energy Solution HVAC 사업부를 위한 AI 챗봇 플랫폼입니다. 고객이 제품 문의, 기술 지원, FAQ를 자연어로 요청하면 AI가 내부 지식 베이스를 기반으로 정확한 답변을 제공합니다. 마이크로서비스 3개로 구성되며, 아키텍처 설계부터 개발까지 전담(기여도 100%)했습니다.
+LG Energy Solution HVAC 사업부를 위한 AI 챗봇 플랫폼이다. 고객이 제품 문의, 기술 지원, FAQ를 자연어로 요청하면 AI가 내부 지식 베이스를 기반으로 정확한 답변을 제공한다. 마이크로서비스 3개로 구성되며, 아키텍처 설계부터 개발까지 전담(기여도 100%)했다.
 
 ## 아키텍처
 
 ### 멀티 에이전트 시스템 (Google ADK)
 
-단순 Q&A를 넘어 복잡한 도메인 질의를 처리하기 위해 Google ADK 기반 멀티 에이전트 아키텍처를 설계했습니다.
+단순 Q&A를 넘어 복잡한 도메인 질의를 처리하기 위해 Google ADK 기반 멀티 에이전트 아키텍처를 설계했다.
 
 - **IntentAgent**: 사용자 입력을 8종 의도로 분류
 - **7개 도메인 Agent**: 제품 스펙, FAQ, 마케팅, 기술 지원 등 전문 영역별 Agent
@@ -27,7 +27,7 @@ LG Energy Solution HVAC 사업부를 위한 AI 챗봇 플랫폼입니다. 고객
 
 ### 리액티브 API 서버
 
-Spring WebFlux + R2DBC 기반의 완전 논블로킹 리액티브 API 서버를 구축했습니다.
+Spring WebFlux + R2DBC 기반의 완전 논블로킹 리액티브 API 서버를 구축했다.
 
 - SSE(Server-Sent Events) 스트리밍으로 실시간 AI 응답 제공
 - Resilience4j 서킷 브레이커/재시도 패턴으로 외부 API 장애 대응
@@ -35,7 +35,7 @@ Spring WebFlux + R2DBC 기반의 완전 논블로킹 리액티브 API 서버를 
 
 ### 실시간 STT (Speech-to-Text)
 
-OpenAI Realtime API 기반 실시간 음성 인식 기능을 구현했습니다.
+OpenAI Realtime API 기반 실시간 음성 인식 기능을 구현했다.
 
 - WebSocket 양방향 스트리밍 구현
 - VAD(Voice Activity Detection) 직접 개발
@@ -43,14 +43,14 @@ OpenAI Realtime API 기반 실시간 음성 인식 기능을 구현했습니다.
 
 ### Admin 시스템
 
-지식 베이스(FAQ, 제품 스펙, 마케팅 자료) 관리 체계를 구축했습니다.
+지식 베이스(FAQ, 제품 스펙, 마케팅 자료) 관리 체계를 구축했다.
 
 - RBAC 기반 접근 제어로 역할별 권한 관리
 - 문서 업로드 → 벡터 임베딩 자동화 파이프라인
 
 ## 인프라
 
-Terraform IaC로 AWS/GCP 멀티 클라우드 인프라 전체를 코드화하고 모듈화했습니다.
+Terraform IaC로 AWS/GCP 멀티 클라우드 인프라 전체를 코드화하고 모듈화했다.
 
 - **AWS**: ECS, CloudFront, RDS, S3
 - **GCP**: GKE 기반 인프라 전환 설계 (10개국 글로벌 확산 대응)

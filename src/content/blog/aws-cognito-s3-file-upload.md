@@ -375,7 +375,7 @@ async function uploadWithPresignedUrl(file) {
 
 ---
 
-## 참고 자료
+## 참고
 
 - [AWS Cognito 개발자 인증 자격 증명](https://docs.aws.amazon.com/ko_kr/cognito/latest/developerguide/developer-authenticated-identities.html)
 - [AWS SDK를 사용한 S3 파일 업로드](https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v2/developer-guide/s3-example-photo-album.html)

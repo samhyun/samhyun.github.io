@@ -243,3 +243,10 @@ private void compareProductIds(ArrayNode textProducts, ArrayNode uiProducts) {
 ## 참고
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [멀티 턴 워크플로우를 상태 머신으로 설계하기](/blog/multi-agent-quotation-state-machine)
+- 다음: [RxJava3로 멀티 에이전트 병렬 실행 파이프라인 설계하기](/blog/multi-agent-parallel-execution)

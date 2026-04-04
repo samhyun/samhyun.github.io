@@ -26,7 +26,7 @@ Google ADK 기반 HVAC 챗봇 프로젝트에서 이 문제를 해결하기 위�
 | Tool 정의 | 1,000\~2,000 | Function calling 스키마 |
 | 에이전트 instruction | 1,000\~3,000 | 시스템 프롬프트 |
 
-상품 추천 → 비교 → 견적 같은 다단계 대화에서는 **5~7턴 만에 8,000 토큰을 초과**하는 상황이 빈번했다.
+상품 추천 → 비교 → 견적 같은 다단계 대화에서는 **5\~7턴 만에 8,000 토큰을 초과**하는 상황이 빈번했다.
 
 ---
 
@@ -129,7 +129,7 @@ public static void cleanupAfterProductRecommendation(InvocationContext ctx) {
     // 1. 상품 상세 JSON (2,000+ 토큰/건)
     int productData = removeProductDetailData(ctx);  // "product_detail_data:*"
 
-    // 2. RAG 검색 결과 (2,000\~5,000 토큰)
+    // 2. RAG 검색 결과 (2,000~5,000 토큰)
     int candidateDocs = removeCandidateDocs(ctx);     // "candidate_docs"
 
     // 3. 상품 SKU 메타데이터
@@ -140,7 +140,7 @@ public static void cleanupAfterProductRecommendation(InvocationContext ctx) {
 }
 ```
 
-이 정리만으로도 **턴당 4,000~10,000 토큰을 절감**할 수 있었다.
+이 정리만으로도 **턴당 4,000\~10,000 토큰을 절감**할 수 있었다.
 
 ### 계층 3: LLM 기반 대화 이력 압축 (ContextSummarizerAgent)
 
@@ -173,7 +173,7 @@ ContextSummarizerAgent의 핵심 규칙은 **무엇을 보존하고 무엇을 �
 | **압축** | 핵심만 추출 | Tool JSON → "3개 VRF 상품 검색됨", 상세 스펙 → "56kW, EER 4.78" |
 | **제거** | 완전 삭제 | 중복 메타데이터, 처리 완료된 임시 상태 |
 
-**압축 목표**: 8,000+ 토큰 → 500~1,000 토큰(80~90% 감소)
+**압축 목표**: 8,000+ 토큰 → 500\~1,000 토큰(80\~90% 감소)
 
 #### 이벤트 교체
 
@@ -274,7 +274,7 @@ ADK의 세션 이벤트를 `clear()`한 후 요약만 넣으면 SSE 스트리밍
 | 턴당 평균 비용 (GPT-4.1 기준) | $0.025 | $0.008 |
 | 평균 응답 지연 | 8\~12초 | 4\~6초 |
 
-컨텍스트 압축을 통해 **토큰 사용량 60~70% 절감**, **응답 속도 40~50% 개선**을 달성했다.
+컨텍스트 압축을 통해 **토큰 사용량 60\~70% 절감**, **응답 속도 40\~50% 개선**을 달성했다.
 
 ---
 
@@ -282,3 +282,10 @@ ADK의 세션 이벤트를 `clear()`한 후 요약만 넣으면 SSE 스트리밍
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
 - [OpenAI Tokenizer](https://platform.openai.com/tokenizer)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [RxJava3로 멀티 에이전트 병렬 실행 파이프라인 설계하기](/blog/multi-agent-parallel-execution)
+- 다음: [멀티 에이전트 챗봇의 메시지 그룹핑 스키마 설계](/blog/multi-agent-message-grouping-schema)

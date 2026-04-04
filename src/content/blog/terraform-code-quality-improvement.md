@@ -4,7 +4,7 @@ description: 'Terraformer로 AWS 인프라를 임포트한 결과 50개 파일 3
 pubDate: 2026-03-20
 category: devops
 tags: ['terraform', 'iac', 'code-quality', 'aws', 'security']
-featured: true
+featured: false
 draft: false
 ---
 
@@ -167,12 +167,12 @@ rds_instance   = "db.r6g.large"
 
 ### Before: 6개 서비스를 위해 4개 ALB
 - admin ALB, client ALB, admin-client ALB, service ALB
-- 각 ALB: ~$8/월 = 로드밸런서만 $32/월
+- 각 ALB: \~$8/월 = 로드밸런서만 $32/월
 
 ### After: 2개 ALB + 라우팅 규칙
 - Public ALB: 호스트 기반 라우팅
 - Internal ALB: 경로 기반 라우팅
-- **절감: ~$16/월**
+- **절감: \~$16/월**
 
 ## 개선 로드맵
 
@@ -186,7 +186,7 @@ rds_instance   = "db.r6g.large"
 - 12개 로컬 상태를 단일 원격 상태로 마이그레이션
 - 상태 버전 관리 활성화
 
-### Phase 3: 모듈화 (2~3주)
+### Phase 3: 모듈화 (2\~3주)
 - 플랫 코드에서 재사용 모듈 추출
 - 환경별 구성 생성
 - 변수 파일 구현

@@ -7,7 +7,7 @@ tags: ['llm', 'multi-agent', 'rxjava', 'parallel-execution', 'google-adk']
 draft: false
 ---
 
-멀티 에이전트 시스템에서 가장 큰 병목은 **LLM API 호출 지연**이다. 에이전트 하나의 응답에 2~5초가 걸리는데 한 턴에 3~5개의 에이전트가 순차적으로 실행되면 사용자는 10초 이상을 기다려야 한다.
+멀티 에이전트 시스템에서 가장 큰 병목은 **LLM API 호출 지연**이다. 에이전트 하나의 응답에 2\~5초가 걸리는데 한 턴에 3\~5개의 에이전트가 순차적으로 실행되면 사용자는 10초 이상을 기다려야 한다.
 
 Google ADK 기반 B2B 챗봇에서 RxJava3를 활용하여 의존성이 있는 에이전트는 순차로 독립적인 에이전트는 병렬로 실행하는 파이프라인을 설계한 경험을 정리했다.
 
@@ -37,7 +37,7 @@ graph LR
     style H fill:#f3e8ff,stroke:#a855f7,color:#581c87
 ```
 
-**총 소요 시간: ~14초.** 사용자 체감 품질이 나빴다.
+**총 소요 시간: \~14초.** 사용자 체감 품질이 나빴다.
 
 하지만 모든 에이전트가 이전 결과에 의존하는 것은 아니다. 인사 생성, 스펙 추출, 도메인 에이전트 라우팅은 Intent 분류만 끝나면 동시에 실행할 수 있다.
 
@@ -219,7 +219,7 @@ gantt
         컨텍스트 압축           :7, 8
 ```
 
-**~50% 응답 시간 단축.**
+**\~50% 응답 시간 단축.**
 
 ---
 
@@ -291,9 +291,9 @@ ChatModel defaultModel = new TokenUsageCapturingChatModel(
 |---|---|---|
 | 평균 응답 시간 (추천 질의) | \~14초 | \~7초 |
 | 평균 응답 시간 (일반 질문) | \~5초 | \~3초 |
-| 동시 LLM 호출 수 (피크) | 1 | 3\~4 |
+| 동시 LLM 호출 수 (피크) | 1 | 3\~5개 |
 
-병렬화와 Dual Model 전략을 조합하여 응답 속도 ~50% 개선과 비용 ~30% 절감을 달성했다.
+병렬화와 Dual Model 전략을 조합하여 응답 속도 \~50% 개선과 비용 \~30% 절감을 달성했다.
 
 ---
 
@@ -301,3 +301,10 @@ ChatModel defaultModel = new TokenUsageCapturingChatModel(
 
 - [Google ADK Documentation](https://google.github.io/adk-docs/)
 - [RxJava3 Flowable API](https://reactivex.io/RxJava/3.x/javadoc/)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [멀티 에이전트 챗봇의 응답 품질 개선](/blog/multi-agent-feedback-quality-improvement)
+- 다음: [Multi-Agent 챗봇에서 컨텍스트 윈도우 관리하기](/blog/multi-agent-context-compression)

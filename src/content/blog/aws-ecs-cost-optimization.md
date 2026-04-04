@@ -66,7 +66,7 @@ Public Subnet이라도 AWS 서비스 접근은 VPC Endpoint를 쓰는 게 낫다
 
 ## 3단계: Fargate → EC2 Spot 전환
 
-NAT를 제거한 후에도 Fargate 자체의 과금이 여전히 컸다. 같은 스펙을 EC2 Spot Instance로 돌리면 Fargate 대비 50~70% 저렴해진다.
+NAT를 제거한 후에도 Fargate 자체의 과금이 여전히 컸다. 같은 스펙을 EC2 Spot Instance로 돌리면 Fargate 대비 50\~70% 저렴해진다.
 
 ### 왜 Spot이 가능했나
 
@@ -152,7 +152,7 @@ graph TB
 |---|---|
 | Client VPN → OpenVPN | 가장 큰 단일 비용 항목 제거 |
 | NAT Gateway 제거 | NAT 과금 제거. VPC Endpoint 비용은 미미 |
-| Fargate → EC2 Spot + 스펙 조정 | 동일 스펙 기준 50~70% 저렴 |
+| Fargate → EC2 Spot + 스펙 조정 | 동일 스펙 기준 50\~70% 저렴 |
 
 서비스 구성이나 성능에는 변화가 없었다. ECS 운영 방식도 동일하게 유지된다.
 

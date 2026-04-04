@@ -7,7 +7,7 @@ tags: ['multi-agent', 'database', 'schema-design', 'spring-webflux', 'flyway']
 draft: false
 ---
 
-멀티 에이전트 시스템에서 병렬 실행을 구현하면 응답 속도는 빨라진다. 하지만 **데이터 모델이 복잡해진다.** 사용자 1명의 메시지에 대해 5~6개의 에이전트가 동시에 응답하면 피드백(👍/👎)을 어느 응답에 연결할지 불명확해진다. 어드민 대시보드도 채팅 로그를 조각 단위로 보면 전체 흐름을 이해하기 어렵다.
+멀티 에이전트 시스템에서 병렬 실행을 구현하면 응답 속도는 빨라진다. 하지만 **데이터 모델이 복잡해진다.** 사용자 1명의 메시지에 대해 5\~6개의 에이전트가 동시에 응답하면 피드백(👍/👎)을 어느 응답에 연결할지 불명확해진다. 어드민 대시보드도 채팅 로그를 조각 단위로 보면 전체 흐름을 이해하기 어렵다.
 
 메시지 그룹핑을 통해 사용자 요청 + 모든 에이전트 응답을 하나의 단위로 다루고 Flyway 5단계 마이그레이션으로 무중단 배포한 경험을 정리했다.
 
@@ -329,3 +329,10 @@ DB 마이그레이션과 애플리케이션 배포를 분리하는 게 핵심이
 
 - [Spring WebFlux Schedulers](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html)
 - [Flyway Database Migration](https://flywaydb.org/)
+
+---
+
+### 멀티 에이전트 챗봇 시리즈
+
+- 이전: [Multi-Agent 챗봇에서 컨텍스트 윈도우 관리하기](/blog/multi-agent-context-compression)
+- 다음: [멀티 에이전트 챗봇에 다국어를 넣으려면](/blog/multi-agent-i18n-architecture)

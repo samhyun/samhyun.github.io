@@ -94,9 +94,9 @@ Users
 Global HTTP(S) LB + Cloud CDN
   ├─ GCS (SPA 정적 파일, 1일 캐시)
   ├─ GKE Autopilot (Spot VMs)
-  │   ├─ service (1\~10 pods, HPA)
-  │   ├─ agent (1\~10 pods, HPA)
-  │   └─ admin (1\~5 pods, HPA)
+  │   ├─ service (1~10 pods, HPA)
+  │   ├─ agent (1~10 pods, HPA)
+  │   └─ admin (1~5 pods, HPA)
   ├─ Compute Engine (Milvus, Persistent Disk)
   └─ Cloud SQL MySQL (Private IP)
 ```
@@ -124,9 +124,9 @@ Users
   ↓
 Azure CDN + Blob Storage (SPA)
   ├─ AKS Cluster (Spot Nodes)
-  │   ├─ service (1\~10 pods, HPA)
-  │   ├─ agent (1\~10 pods, HPA)
-  │   └─ admin (1\~5 pods, HPA)
+  │   ├─ service (1~10 pods, HPA)
+  │   ├─ agent (1~10 pods, HPA)
+  │   └─ admin (1~5 pods, HPA)
   ├─ VM (Milvus, Managed Disk)
   └─ Azure Database for MySQL Flexible (Private Subnet)
 ```

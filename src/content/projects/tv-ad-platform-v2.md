@@ -1,6 +1,6 @@
 ---
 title: 'TV 광고 플랫폼 2.0'
-description: 'DB 설계부터 AWS 환경 구축까지 TV 광고 플랫폼 2.0 전반 개발. 온라인 청약·관리자·API 서비스 및 영상 인코딩 시스템 구현.'
+description: '1.0의 기술 부채를 해소하고 AWS 네이티브 서비스로 전환한 TV 광고 플랫폼 2세대. Kotlin + Vue.js 도입, MediaConvert 기반 영상 인코딩 구현.'
 period: '2019.06 — 2020.05'
 role: '풀스택 개발자'
 techStack: ['Kotlin', 'Java', 'TypeScript', 'Spring Boot', 'Vue.js', 'MySQL', 'Redis', 'AWS (S3, CloudFront, Lambda, MediaConvert)', 'Git']
@@ -11,9 +11,9 @@ highlights:
 order: 6
 ---
 
-## 프로젝트 개요
+## 배경
 
-TV 광고 플랫폼의 2세대 버전으로, 풀스택 3명 + 백엔드 2명 규모에서 DB 설계, 프로젝트 구조 설계부터 AWS 환경 구축까지 전반을 담당했습니다 (기여도 40%).
+1.0을 5년간 운영하면서 쌓인 기술 부채를 해소하기 위해 2세대로 리빌드했다. AngularJS → Vue.js, Java → Kotlin으로 기술 스택을 현대화하고 외부 SaaS(Zencoder)에 의존하던 영상 인코딩을 AWS MediaConvert로 전환해 비용과 운영 복잡도를 줄이는 것이 주요 목표였다. 풀스택 3명 + 백엔드 2명 규모에서 DB 설계부터 AWS 환경 구축까지 담당했다 (기여도 40%).
 
 ## 온라인 청약 사이트
 
@@ -29,6 +29,6 @@ TV 광고 플랫폼의 2세대 버전으로, 풀스택 3명 + 백엔드 2명 규
 
 ## API 서비스 및 AWS 환경
 
-- 광고 관리 API, 광고 영상 관리 API, 사용자 관리 API, 엑셀 추출 API 개발
-- S3, CloudFront, Lambda를 활용한 웹 배포 자동화
-- AWS MediaConvert, CloudWatch, Lambda를 이용한 영상 인코딩 기능 구현
+- 광고 관리·영상 관리·사용자 관리·엑셀 추출 API 개발
+- S3 + CloudFront + Lambda 조합으로 프론트엔드 배포 자동화 — 빌드 결과를 S3에 업로드하면 CloudFront 캐시가 자동 무효화
+- AWS MediaConvert + CloudWatch + Lambda 기반 영상 인코딩 — Zencoder 대비 AWS 내부 연동으로 지연 시간과 비용 절감

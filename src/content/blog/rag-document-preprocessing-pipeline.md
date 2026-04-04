@@ -13,10 +13,10 @@ RAG 챗봇을 구축할 때 문서 전처리는 검색 품질을 좌우한다. �
 
 RAG 시스템에서 처리해야 할 문서는 두 종류로 나뉜다.
 
-- **단순 문서**: 제품 사양서, FAQ (PDF/XLSX) → Lambda로 5~30초 처리 가능
+- **단순 문서**: 제품 사양서, FAQ (PDF/XLSX) → Lambda로 5\~30초 처리 가능
 - **복잡 문서**: 마케팅 자료, 테이블/이미지 포함 PDF → GPU 필요 (VLM 기반 추출)
 
-Lambda는 5~30초, Batch+GPU는 1~60분이다. 처리 시간 편차가 크고 각 문서의 전처리 상태를 추적해야 하는 것도 과제였다.
+Lambda는 5\~30초, Batch+GPU는 1\~60분이다. 처리 시간 편차가 크고 각 문서의 전처리 상태를 추적해야 하는 것도 과제였다.
 
 ## 솔루션: 카테고리별 파이프라인 선택
 
@@ -31,9 +31,9 @@ public enum PreprocessType {
 
 | 카테고리 | 타입 | 프로세서 | 소요시간 | 비용 |
 |---|---|---|---|---|
-| product_specs | LAMBDA | Lambda 함수 | 5-30초 | ~$0.001/문서 |
-| faq | LAMBDA | Lambda 함수 | 5-30초 | ~$0.001/문서 |
-| marketing | BATCH | AWS Batch + GPU Spot | 1-60분 | ~$0.05/문서 |
+| product_specs | LAMBDA | Lambda 함수 | 5-30초 | \~$0.001/문서 |
+| faq | LAMBDA | Lambda 함수 | 5-30초 | \~$0.001/문서 |
+| marketing | BATCH | AWS Batch + GPU Spot | 1-60분 | \~$0.05/문서 |
 
 파이프라인 엔드포인트는 DB에 저장되며 하드코딩하지 않는다.
 
@@ -175,7 +175,7 @@ graph LR
 
 ## GPU Spot Instance 전략
 
-- 비용을 60~91% 절감한다.
+- 비용을 60\~91% 절감한다.
 - VLM 기반 문서 변환은 GPU가 필수다 (테이블/이미지 추출용).
 - Spot 중단 시 AWS Batch가 자동으로 다른 인스턴스에서 재시도한다.
 - 최대 재시도 3회. 타임아웃은 문서당 3600초다.

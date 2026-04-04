@@ -62,3 +62,83 @@ const { Content } = await render(project);
     </div>
   </article>
 </BaseLayout>
+
+<script>
+  // Mermaid 초기화
+  async function initMermaid() {
+    const mermaidBlocks = document.querySelectorAll('.prose pre[data-language="mermaid"]');
+    if (mermaidBlocks.length === 0) return;
+
+    const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
+    const isDark = document.documentElement.classList.contains('dark');
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'neutral',
+      fontFamily: 'ui-sans-serif, system-ui, -apple-system, sans-serif',
+    });
+
+    for (const pre of mermaidBlocks) {
+      const code = pre.querySelector('code');
+      const container = document.createElement('div');
+      container.className = 'mermaid';
+      container.textContent = code?.textContent ?? '';
+      pre.replaceWith(container);
+    }
+
+    await mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+  }
+  initMermaid();
+
+  // 코드 블록 복사 버튼
+  const copyIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+  const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+  document.querySelectorAll('.prose pre').forEach((pre) => {
+    if (pre.getAttribute('data-language') === 'mermaid') return;
+    const lang = pre.getAttribute('data-language') || '';
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block-wrapper';
+    pre.parentNode!.insertBefore(wrapper, pre);
+
+    // Header bar
+    const header = document.createElement('div');
+    header.className = 'code-block-header';
+
+    const dots = document.createElement('div');
+    dots.className = 'code-block-dots';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+
+    const right = document.createElement('div');
+    right.className = 'flex items-center gap-3';
+
+    if (lang) {
+      const langLabel = document.createElement('span');
+      langLabel.className = 'code-block-lang';
+      langLabel.textContent = lang;
+      right.appendChild(langLabel);
+    }
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.setAttribute('aria-label', '코드 복사');
+    btn.innerHTML = `${copyIcon}<span class="copy-label">Copy</span>`;
+    right.appendChild(btn);
+
+    header.appendChild(dots);
+    header.appendChild(right);
+    wrapper.appendChild(header);
+    wrapper.appendChild(pre);
+
+    btn.addEventListener('click', async () => {
+      const code = pre.querySelector('code')?.textContent ?? pre.textContent ?? '';
+      await navigator.clipboard.writeText(code);
+      btn.innerHTML = `${checkIcon}<span class="copy-label">Copied!</span>`;
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = `${copyIcon}<span class="copy-label">Copy</span>`;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  });
+</script>
