@@ -4,7 +4,7 @@ description: '정식 운영 전 단계에서 ECS Fargate 인프라 비용이 부
 pubDate: 2025-12-22
 category: 'aws'
 tags: ['aws', 'ecs', 'ec2-spot', 'vpc-endpoint', 'cost-optimization']
-featured: true
+featured: false
 draft: false
 ---
 

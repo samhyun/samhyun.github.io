@@ -4,6 +4,7 @@ description: '여러 레포에서 코드 에이전트를 동시에 띄워 작업
 pubDate: 2026-05-12
 category: 'ai'
 tags: ['llm', 'claude-code', 'obsidian', 'knowledge-base', 'workflow', 'harness-engineering']
+featured: true
 draft: false
 ---
 
