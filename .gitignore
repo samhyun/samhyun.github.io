@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # private files (resumes, etc.)
 _private/
+
+# playwright MCP cache (snapshots, console logs)
+.playwright-mcp/
+
+# Claude Code 프로젝트 settings/lock/state (사용자별, 공유 X)
+.claude/
