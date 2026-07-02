@@ -23,7 +23,7 @@ const categoryLabels: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout title={post.data.title} description={post.data.description} ogImage={`/og/${post.id}.png`}>
   <article>
     <!-- Header -->
     <header class="mb-8">
