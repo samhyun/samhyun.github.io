@@ -1,5 +1,5 @@
 export const SITE_TITLE = 'SamHyun Dev';
-export const SITE_DESCRIPTION = 'Software Engineer | Spring, Cloud, AI Chatbot';
+export const SITE_DESCRIPTION = 'Software Engineer | Spring, Cloud, AI Agent';
 export const SITE_AUTHOR = 'Sam Hyun Kim';
 
 export const NAV_ITEMS = [
