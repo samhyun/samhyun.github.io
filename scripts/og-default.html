@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- OG 기본 이미지 소스. 재생성: 브라우저 1200x630 뷰포트로 열어 스크린샷 → public/og-default.png -->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+    background: #0b1120;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 96px;
+  }
+  /* Decorative blobs — 사이트 히어로와 동일한 무드 */
+  .blob1 {
+    position: absolute; top: -180px; left: -120px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(37,99,235,0.35), transparent 65%);
+  }
+  .blob2 {
+    position: absolute; bottom: -220px; right: -100px;
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.30), transparent 65%);
+  }
+  /* subtle grid */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  }
+  .content { position: relative; z-index: 2; }
+  .label {
+    font-size: 26px; font-weight: 600; letter-spacing: 0.35em;
+    text-transform: uppercase; color: #60a5fa; margin-bottom: 28px;
+  }
+  h1 {
+    font-size: 110px; font-weight: 800; letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa 60%, #60a5fa);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    margin-bottom: 36px; line-height: 1.05;
+  }
+  .tagline {
+    font-size: 34px; font-weight: 500; color: #cbd5e1; line-height: 1.5;
+  }
+  .tagline .dim { color: #64748b; }
+  .footer {
+    position: absolute; bottom: 56px; left: 96px; right: 96px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 2;
+  }
+  .chips { display: flex; gap: 14px; }
+  .chip {
+    font-size: 22px; font-weight: 600; padding: 10px 22px;
+    border-radius: 12px; border: 1.5px solid rgba(148,163,184,0.25);
+    color: #94a3b8; background: rgba(30,41,59,0.5);
+  }
+  .bar {
+    position: absolute; top: 0; left: 0; right: 0; height: 10px; z-index: 3;
+    background: linear-gradient(90deg, #2563eb, #7c3aed, #2563eb);
+  }
+</style>
+</head>
+<body>
+  <div class="bar"></div>
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <p class="label">Software Engineer</p>
+    <h1>SamHyun Dev</h1>
+    <p class="tagline">작동하는 코드보다 <span style="color:#e2e8f0; font-weight:700;">왜 그렇게 만들었는지</span>에 관심이 많습니다<br /><span class="dim">만들면서 배운 것들을 기록합니다</span></p>
+  </div>
+  <div class="footer">
+    <div class="chips">
+      <span class="chip">Spring</span>
+      <span class="chip">Cloud</span>
+      <span class="chip">AI Agent</span>
+    </div>
+  </div>
+</body>
+</html>
