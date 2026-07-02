@@ -1,6 +1,6 @@
 ---
 title: 'Querydsl Web Support의 Entity 노출 문제를 Alias 아키텍처로 해결하기'
-description: 'Spring Data의 Querydsl Web Support에 Alias 시스템을 도입하여 Entity 노출 문제를 해결하고, API 스펙의 안정성과 문서화를 Single Source of Truth로 관리하는 아키텍처를 설계했다.'
+description: 'Spring Data의 Querydsl Web Support에 Alias 시스템을 도입하여 Entity 노출 문제를 해결하고 API 스펙의 안정성과 문서화를 Single Source of Truth로 관리하는 아키텍처를 설계했다.'
 pubDate: 2025-02-15
 category: 'spring'
 tags: ['querydsl', 'spring-data', 'kotlin', 'architecture', 'rest-api']

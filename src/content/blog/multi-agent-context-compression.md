@@ -1,5 +1,5 @@
 ---
-title: 'Multi-Agent 챗봇에서 컨텍스트 윈도우 관리하기 — 토큰 추정 Fallback 체인과 LLM 기반 압축'
+title: '멀티 에이전트 챗봇에서 컨텍스트 윈도우 관리하기 — 토큰 추정 Fallback 체인과 LLM 기반 압축'
 description: 'Google ADK 기반 멀티 에이전트 시스템에서 대화가 길어질수록 토큰이 폭증하는 문제를 해결하기 위해 적용한 토큰 추정 Fallback 체인, State 정리, LLM 기반 대화 요약 압축 전략을 정리한다.'
 pubDate: 2026-01-20
 category: 'ai'

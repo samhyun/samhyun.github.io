@@ -1,6 +1,6 @@
 ---
 title: '멀티 에이전트 챗봇의 SSE 스트리밍 아키텍처 — Spring WebFlux로 실시간 응답 전달하기'
-description: 'Spring WebFlux와 SSE로 멀티 에이전트 챗봇의 실시간 응답을 스트리밍하고, 메타데이터 필터링, Fire-and-Forget 완료 추적, 음성 통합 3가지 모드를 구현한 경험을 정리했다.'
+description: 'Spring WebFlux와 SSE로 멀티 에이전트 챗봇의 실시간 응답을 스트리밍하면서 메타데이터 필터링, Fire-and-Forget 완료 추적, 음성 통합 3가지 모드를 구현한 경험을 정리했다.'
 pubDate: 2025-10-15
 category: 'spring'
 tags: ['spring-webflux', 'sse', 'reactive', 'multi-agent', 'streaming']
