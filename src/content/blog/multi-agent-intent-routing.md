@@ -172,7 +172,7 @@ FINAL VALIDATION STEP:
 - 아니라면 PRODUCT_EXPLANATION으로 교체
 ```
 
-`outputKey`를 설정하면 에이전트의 출력이 자동으로 Session State에 저장되어, 후속 에이전트가 `ctx.session().state().get("user_intent")`로 읽을 수 있다.
+`outputKey`를 설정하면 에이전트의 출력이 자동으로 Session State에 저장되어 후속 에이전트가 `ctx.session().state().get("user_intent")`로 읽을 수 있다.
 
 ```java
 return LlmAgent.builder()

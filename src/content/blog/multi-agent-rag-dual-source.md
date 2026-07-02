@@ -209,7 +209,7 @@ MODE B: Auto-Discovery (제품명 미지정)
 
 ## 증거 검증(Evidence Validation)
 
-LLM이 검색 결과에 없는 정보를 만들어내는 것(hallucination)을 방지하기 위해, 증거 검증 단계를 명시적으로 프롬프트에 포함했다.
+LLM이 검색 결과에 없는 정보를 만들어내는 것(hallucination)을 방지하기 위해 증거 검증 단계를 명시적으로 프롬프트에 포함했다.
 
 ```
 EVIDENCE VALIDATION (MANDATORY before responding):

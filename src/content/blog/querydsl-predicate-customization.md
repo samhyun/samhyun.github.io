@@ -1,6 +1,6 @@
 ---
 title: 'QuerydslPredicate를 사용한 동적 쿼리 생성과 커스터마이징을 통한 확장'
-description: 'Spring Data JPA의 @QuerydslPredicate를 활용하여 동적 쿼리를 생성하고, 타입 기반 커스터마이징으로 확장성과 재사용성을 높이는 방법을 정리했다.'
+description: 'Spring Data JPA의 @QuerydslPredicate를 활용하여 동적 쿼리를 생성하고 타입 기반 커스터마이징으로 확장성과 재사용성을 높이는 방법을 정리했다.'
 pubDate: 2021-07-10
 category: 'spring'
 tags: ['querydsl', 'spring-data', 'jpa', 'dynamic-query']
