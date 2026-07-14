@@ -4,7 +4,7 @@ description: 'Superset을 쓰다가 Orca로 옮겼다. tmux와 cmux, Superset, O
 pubDate: 2026-07-14
 category: 'ai'
 tags: ['orca', 'ai-agent', 'coding-agent', 'worktree', 'superset', 'cmux', 'ade', 'tool-comparison']
-featured: false
+featured: true
 draft: false
 ---
 
