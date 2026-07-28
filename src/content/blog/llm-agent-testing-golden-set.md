@@ -186,3 +186,17 @@ judge가 LLM이라는 점도 남는다. `--repeat`는 케이스 실행을 통째
 봇 답변은 두 번 다 환불 규정을 제시하고 하단에 참고 FAQ를 표기했다. 그런데 FAIL을 낸 judge는 "그 수수료 규정이 명시된 등록 FAQ 항목(또는 링크)을 명확히 근거로 제시하지 않아 규정을 임의로 기재했을 가능성이 있다"고 적었다. 에이전트가 아니라 judge가 흔들린 쪽이다.
 
 rubric에 "출처가 표기돼야 한다"고만 적어둔 게 원인이다. 표기의 형태를 정해두지 않으니 judge가 어떤 회차에는 인용이나 링크까지 요구했다. 이런 건 judge에게 맡길 게 아니라 "참고 FAQ라는 라벨을 붙인다"를 계약으로 정해 두고 `contains: ["참고 FAQ"]`로 검사할 조건이었다. 라벨이 붙었는지만 보는 단언이라 출처의 내용까지 보증하지는 못하지만, 적어도 회차마다 기준이 달라지지는 않는다. 무엇을 코드로 검사하고 무엇을 judge에게 넘길지 케이스마다 다시 봐야 할 것 같다.
+
+## 참고
+
+- [LangSmith](https://www.langchain.com/langsmith)
+- [LangGraph Documentation](https://docs.langchain.com/oss/python/langgraph/overview)
+- [pytest — How to parametrize fixtures and test functions](https://docs.pytest.org/en/stable/how-to/parametrize.html)
+- [Vitest](https://vitest.dev/)
+- [Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685)
+
+---
+
+### 여행 챗봇 시리즈
+
+- 이전: [대화형 여행 에이전트의 렌더 계약 — 응답을 turns/type/payload로 나눈 이유](/blog/conversational-ui-turns-contract)
