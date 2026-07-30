@@ -207,3 +207,4 @@ FAQ가 늘어나면 [Ragas](https://docs.ragas.io/) 같은 RAG 평가 도구도 
 ### 여행 챗봇 시리즈
 
 - 이전: [대화형 여행 에이전트의 렌더 계약 — 응답을 turns/type/payload로 나눈 이유](/blog/conversational-ui-turns-contract)
+- 다음: [LLM 에이전트에 트레이싱·서킷브레이커·시맨틱 캐시 붙이기](/blog/llm-service-resilience-cost)
