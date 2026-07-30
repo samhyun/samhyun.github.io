@@ -8,6 +8,9 @@ highlights:
   - '필리핀 대상 AI 챗봇 서비스 성공 론칭 — 10개국 글로벌 확산 결정 확보'
   - 'Google ADK 기반 멀티 에이전트 시스템 — IntentAgent(8종) + 7개 도메인 Agent 오케스트레이션'
   - 'Terraform IaC로 AWS/GCP 멀티 클라우드 인프라 전체 코드화 및 모듈화'
+links:
+  - label: 'LG 필리핀 HVAC 페이지 (HVAC AI Assistant 버튼)'
+    url: 'https://www.lg.com/ph/business/hvac/homeowner/'
 order: 1
 ---
 

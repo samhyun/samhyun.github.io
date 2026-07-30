@@ -24,6 +24,14 @@ const projects = defineCollection({
     role: z.string(),
     techStack: z.array(z.string()),
     highlights: z.array(z.string()).default([]),
+    links: z
+      .array(
+        z.object({
+          label: z.string(),
+          url: z.string().url().regex(/^https?:\/\//, 'http(s) 링크만 허용합니다'),
+        })
+      )
+      .default([]),
     type: z.enum(['work', 'personal']).default('work'),
     order: z.number().default(0),
   }),

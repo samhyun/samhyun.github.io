@@ -9,7 +9,7 @@ highlights:
   - 'Router → LifeAgent + ReflectAgent 계층적 에이전트 아키텍처 설계'
   - 'LLM 기반 의도 분류(15종) + 신뢰도 기반 동적 라우팅'
   - 'pgvector 시맨틱 메모리 검색 및 iOS 앱 개발'
-order: 12
+order: 14
 ---
 
 ## 배경

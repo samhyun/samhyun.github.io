@@ -9,7 +9,14 @@ highlights:
   - '이력서 파싱 → 분석 → 인터뷰 → 섹션별 개선 → 검증 자동화 파이프라인'
   - '13개 섹션 전문 Agent + Validator Agent 품질 검증 워크플로우'
   - 'Spring Boot 코어 → ADK 에이전트 SSE 스트리밍 아키텍처'
-order: 13
+links:
+  - label: 'GitHub — resume-core (Spring Boot)'
+    url: 'https://github.com/samhyun/resume-core'
+  - label: 'GitHub — resume-adk-agent (Google ADK)'
+    url: 'https://github.com/samhyun/resume-adk-agent'
+  - label: 'GitHub — resume-client (Next.js)'
+    url: 'https://github.com/samhyun/resume-client'
+order: 12
 ---
 
 ## 배경
