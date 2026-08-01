@@ -237,6 +237,16 @@ body {
   @apply rounded-lg my-4;
 }
 
+/* 이미지 캡션 — 이미지 바로 뒤에 오는 이탤릭 단독 문단 */
+.prose p:has(> img:only-child) + p:has(> em:only-child) {
+  @apply -mt-2 mb-8 border-l-2 border-border pl-3 text-sm leading-relaxed text-text-muted;
+  @apply dark:border-border-dark dark:text-text-muted-dark;
+}
+
+.prose p:has(> img:only-child) + p > em:only-child {
+  @apply not-italic;
+}
+
 .prose table {
   @apply w-full border-collapse my-4;
 }
