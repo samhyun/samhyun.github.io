@@ -1,11 +1,11 @@
 ---
 title: 'Markdown 목업에서 Claude Design까지, 시안과 구현 사이에서 찾은 규칙'
 description: 'Claude와 Codex로 Markdown 와이어프레임을 그리던 방식에서 Pencil.dev와 Claude Design으로 옮겼다. 개인 프로젝트 세 개를 설계하고 구현하며 시안만으로는 전달되지 않는 기준을 디자인 시스템으로 옮긴 과정을 정리했다.'
-pubDate: 2026-07-31
+pubDate: 2026-08-01
 category: 'ai'
 tags: ['claude-design', 'pencil', 'design-system', 'ui', 'ai-tool']
 featured: false
-draft: true
+draft: false
 ---
 
 처음부터 디자인 도구를 찾은 건 아니었다. 이력서 어시스턴트와 생활 관리 어시스턴트를 처음 만들 때는 Claude나 Codex와 기능을 설계하면서 Markdown 문서 안에 화면도 함께 그렸다. 선과 표를 이용한 와이어프레임이었다.
