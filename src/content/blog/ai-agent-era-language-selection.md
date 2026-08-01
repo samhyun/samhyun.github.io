@@ -2,7 +2,7 @@
 title: 'AI 에이전트 시대의 언어 선택 — 쓰기 어려운 언어의 약점이 사라질 때'
 description: '매일 아침 받는 IT 뉴스레터에서 "If AI writes your code, why use Python?" 글을 보고 떠오른 생각을 정리한다. 사람이 쓰기 좋은 언어와 에이전트가 정확히 쓰는 언어가 다를 수 있다는 가정에서 출발해 5가지 조건, 언어별 평가, 개인 프로젝트 케이스, 그리고 다른 언어를 시도해보고 싶다는 결론까지.'
 pubDate: 2026-05-16
-category: 'ai'
+category: 'workflow'
 tags: ['ai-agent', 'programming-language', 'rust', 'go', 'typescript', 'python', 'language-selection']
 draft: false
 ---

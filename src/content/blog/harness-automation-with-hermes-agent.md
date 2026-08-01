@@ -2,7 +2,7 @@
 title: 'Hermes Agent 도입기 — LLM Wiki 위에 자율 실행 루프 얹기'
 description: 'LLM Wiki가 정적인 외장 두뇌였다면 그 다음 단계로 매일 백로그를 읽고 작업을 위임하고 결과를 보고하는 실행 루프가 필요했다. Hermes Agent를 오케스트레이터로 도입한 기록.'
 pubDate: 2026-05-25
-category: 'ai'
+category: 'workflow'
 tags: ['hermes', 'ai-agent', 'autonomous-agent', 'cron', 'harness-engineering', 'workflow']
 featured: true
 draft: false

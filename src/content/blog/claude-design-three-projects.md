@@ -2,7 +2,7 @@
 title: 'Markdown 목업에서 Claude Design까지, 시안과 구현 사이에서 찾은 규칙'
 description: 'Claude와 Codex로 Markdown 와이어프레임을 그리던 방식에서 Pencil.dev와 Claude Design으로 옮겼다. 개인 프로젝트 세 개를 설계하고 구현하며 시안만으로는 전달되지 않는 기준을 디자인 시스템으로 옮긴 과정을 정리했다.'
 pubDate: 2026-08-01
-category: 'ai'
+category: 'workflow'
 tags: ['claude-design', 'pencil', 'design-system', 'ui', 'ai-tool']
 featured: false
 draft: false

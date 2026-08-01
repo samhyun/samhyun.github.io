@@ -1,7 +1,7 @@
 ---
 title: '프로덕션 챗봇 서비스의 장애 대응 설계 — 타임아웃, 재시도, Fallback, Feature Toggle 4계층 방어'
 description: '외부 시스템 여러 개에 의존하는 프로덕션 챗봇은 어느 하나가 죽어도 응답을 이어가야 한다. 타임아웃, 재시도, Fallback, Feature Toggle로 구성한 4계층 방어 전략을 정리한다.'
-category: 'spring'
+category: 'ai'
 tags: ['resilience', 'fault-tolerance', 'spring-webflux', 'timeout', 'retry', 'fallback']
 pubDate: 2025-10-25
 draft: false

@@ -2,7 +2,7 @@
 title: 'Superset에서 Orca로 옮겨본 기록: 병렬 코딩 에이전트 도구 비교'
 description: 'Superset을 쓰다가 Orca로 옮겼다. tmux와 cmux, Superset, Orca가 각각 어디까지 책임지는지 비교하고 내 작업에서는 왜 Orca가 더 잘 맞았는지 정리했다.'
 pubDate: 2026-07-14
-category: 'ai'
+category: 'workflow'
 tags: ['orca', 'ai-agent', 'coding-agent', 'worktree', 'superset', 'cmux', 'ade', 'tool-comparison']
 featured: true
 draft: false

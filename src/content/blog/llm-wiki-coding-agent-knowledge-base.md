@@ -2,7 +2,7 @@
 title: '코드 에이전트를 위한 LLM Wiki — 1인 하네스의 외장 두뇌 만들기'
 description: '여러 레포에서 코드 에이전트를 동시에 띄워 작업할 때 의사결정과 API 계약을 어떻게 공유할 것인가. 카파시의 LLM Wiki에서 영감을 받아 만든 개발 워크플로우용 외장 두뇌를 정리한다.'
 pubDate: 2026-05-12
-category: 'ai'
+category: 'workflow'
 tags: ['llm', 'claude-code', 'obsidian', 'knowledge-base', 'workflow', 'harness-engineering']
 featured: true
 draft: false

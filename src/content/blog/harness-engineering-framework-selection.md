@@ -2,7 +2,7 @@
 title: '1인 하네스 엔지니어링 — 도구가 늘어날 때 기준 세우기'
 description: 'gstack, ECC, OpenClaw 같은 코드 에이전트 프레임워크가 빠르게 쏟아져 나오는 시대에 1인 개발자가 어떻게 평가하고 선택할지 정리한다. 자주 손이 가는 도구와 안 쓰게 되는 도구를 가르는 기준, 중복되는 스킬 정리, 그리고 plan을 LLM Wiki 백로그로 이어가는 흐름을 다룬다.'
 pubDate: 2026-05-19
-category: 'ai'
+category: 'workflow'
 tags: ['harness-engineering', 'claude-code', 'gstack', 'ecc', 'workflow', 'productivity']
 draft: false
 ---
