@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getCollection('projects', ({ data }) => import.meta.env.PROD ? !data.draft : true);
   return projects.map((project) => ({
     params: { slug: project.id },
     props: project,
@@ -65,7 +65,7 @@ const { Content } = await render(project);
 
       {project.data.highlights.length > 0 && (
         <div class="mt-4">
-          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark mb-2">주요 성과</p>
+          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark mb-2">주요 기여</p>
           <ul class="space-y-1">
             {project.data.highlights.map((h) => (
               <li class="text-sm flex items-start gap-2">

@@ -6,7 +6,7 @@ role: '풀스택 개발자 (개인)'
 type: personal
 techStack: ['Python 3.12', 'FastAPI', 'LangGraph', 'LangChain', 'React 18', 'Vite', 'PostgreSQL (pgvector)', 'SQLAlchemy 2.0', 'LangSmith']
 highlights:
-  - '백엔드 응답을 turns/type/payload 렌더 계약으로 고정 — 프론트 reducer에서 527줄 제거'
+  - 'turns/type/payload 렌더 계약을 도입해 프론트 reducer의 카드 변환 로직 제거'
   - '골든셋 10케이스와 LLM judge로 비결정적 응답의 회귀 테스트 구성'
   - 'provider별 서킷브레이커와 FAQ 시맨틱 캐시로 외부 장애·중복 호출 대응'
 links:
@@ -20,6 +20,10 @@ order: 13
 이어드림스쿨 8주차 개인 프로젝트다. "제주도 갈까 하는데"라고 말하면 기간과 인원을 되묻고, 명소 추천에서 일정, 항공, 숙소, 결제까지 하나의 채팅 화면 안에서 이어진다. 검색과 예약 확인을 별도 화면으로 나누지 않고 대화 스트림에 카드로 쌓는 구조로 잡았다.
 
 실제 발권이나 결제는 하지 않는 학습·시연용 프로젝트다.
+
+![Trip Agent 대화 화면 시안](/blog/claude-design/trip-agent-canvas.png)
+
+*대화와 여행 카드가 한 흐름에 쌓이는 구조를 정리한 화면 시안*
 
 ## 구조
 

@@ -33,6 +33,8 @@ const projects = defineCollection({
       )
       .default([]),
     type: z.enum(['work', 'personal']).default('work'),
+    featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
     order: z.number().default(0),
   }),
 });

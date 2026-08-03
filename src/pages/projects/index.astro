@@ -2,10 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allProjects = (await getCollection('projects'))
+const allProjects = (await getCollection('projects', ({ data }) => import.meta.env.PROD ? !data.draft : true))
   .sort((a, b) => a.data.order - b.data.order);
 
 const workProjects = allProjects.filter(p => p.data.type !== 'personal');
+const featuredWorkProjects = workProjects.filter(p => p.data.featured);
+const otherWorkProjects = workProjects.filter(p => !p.data.featured);
 const personalProjects = allProjects.filter(p => p.data.type === 'personal');
 ---
 
@@ -16,11 +18,11 @@ const personalProjects = allProjects.filter(p => p.data.type === 'personal');
       실무에서 설계하고 구축한 시스템과 사이드 프로젝트를 소개합니다.
     </p>
 
-    <!-- Work Projects -->
+    <!-- Featured Work Projects -->
     <section>
-      <h2 class="mb-6 text-lg font-bold text-text-muted dark:text-text-muted-dark">Work</h2>
+      <h2 class="mb-6 text-lg font-bold text-text-muted dark:text-text-muted-dark">주요 실무 프로젝트</h2>
       <div class="stagger-children space-y-8">
-        {workProjects.map((project, i) => (
+        {featuredWorkProjects.map((project, i) => (
           <a href={`/projects/${project.id}`} class="gradient-border card-hover group block overflow-hidden rounded-xl border border-border p-6 md:p-8 dark:border-border-dark">
             <div class="mb-4 flex items-center gap-3">
               <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-100 text-sm font-bold text-primary-700 dark:bg-primary-900/30 dark:text-primary-400">
@@ -68,6 +70,31 @@ const personalProjects = allProjects.filter(p => p.data.type === 'personal');
         ))}
       </div>
     </section>
+
+    <!-- Other Work Projects -->
+    {otherWorkProjects.length > 0 && (
+      <section class="mt-16">
+        <h2 class="mb-6 text-lg font-bold text-text-muted dark:text-text-muted-dark">그 밖의 실무 프로젝트</h2>
+        <div class="grid gap-4 md:grid-cols-2">
+          {otherWorkProjects.map((project) => (
+            <a href={`/projects/${project.id}`} class="card-hover group rounded-xl border border-border p-5 dark:border-border-dark">
+              <span class="text-xs font-medium text-text-muted dark:text-text-muted-dark">
+                {project.data.period}
+              </span>
+              <h3 class="mt-2 text-lg font-bold transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400">
+                {project.data.title}
+              </h3>
+              <p class="mt-1 text-sm font-medium text-accent-500 dark:text-accent-400">
+                {project.data.role}
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-text-muted dark:text-text-muted-dark">
+                {project.data.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- Side Projects -->
     {personalProjects.length > 0 && (

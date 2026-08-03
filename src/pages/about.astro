@@ -5,37 +5,37 @@ import { SITE_AUTHOR, SOCIAL_LINKS } from '../consts';
 const experiences = [
   {
     period: '2025.09 — 2026.03',
-    company: 'LG Energy Solution (프리랜서)',
-    role: '백엔드 TechLead / AI Agent 개발자',
-    description: 'LGES HVAC AI 챗봇 플랫폼 전체 아키텍처 설계 및 개발 주도. Google ADK 기반 멀티 에이전트 시스템, Spring WebFlux 리액티브 API, 실시간 STT, Terraform IaC 멀티 클라우드 인프라 구축.',
-    techs: ['Java 21', 'Kotlin', 'Python', 'Spring Boot 3.5', 'Google ADK', 'LangChain4j', 'FastAPI', 'React', 'MySQL', 'Milvus', 'AWS', 'GCP', 'Terraform'],
+    company: 'LG전자 HVAC AI 챗봇 프로젝트 (프리랜서)',
+    role: '백엔드 / AI Agent 개발자',
+    description: 'LG전자 HVAC AI 챗봇의 백엔드와 멀티 에이전트 구조를 설계하고 개발했다. WebFlux 기반 스트리밍 API와 실시간 STT, Terraform 기반 멀티 클라우드 배포 환경을 구축했다.',
+    techs: ['Java 21', 'Python', 'Spring Boot 3.5', 'Google ADK', 'LangChain4j', 'FastAPI', 'React 19', 'MySQL', 'Milvus', 'AWS', 'GCP', 'Azure', 'Terraform'],
   },
   {
     period: '2021.05 — 2024.11',
     company: '(주)일루미나리안',
     role: '백엔드 TechLead',
-    description: 'MusicSharesJP 및 GoodVibeWorks 프로젝트의 아키텍처 설계 및 핵심 API 개발. 공용 API 문서 서버, Kotlin Test DSL, Spring Cloud Config 설정 중앙화 등 개발 환경 전반 개선.',
+    description: 'MusicSharesJP와 GoodVibeWorks의 백엔드 아키텍처를 설계하고 핵심 API를 개발했다. 공용 API 문서 서버와 Kotlin Test DSL, Spring Cloud Config 기반 설정 관리 체계도 구축했다.',
     techs: ['Kotlin', 'Java', 'Spring Boot', 'Spring Cloud', 'JPA', 'Querydsl', 'MySQL', 'AWS', 'Docker', 'Jenkins'],
   },
   {
     period: '2020.12 — 2021.04',
     company: 'LOTTE GFR (프리랜서)',
     role: '풀스택 개발자',
-    description: 'NICE CLAUP e커머스 플랫폼 회원/상품 관리 백엔드 API 및 프론트엔드 개발. Facebook Graph API 활용 인스타그램 브랜드 피드 연계.',
+    description: 'NICE CLAUP e커머스 플랫폼의 회원·상품 관리 API와 프론트엔드를 개발했다. Facebook Graph API로 인스타그램 브랜드 피드를 연계했다.',
     techs: ['Java', 'TypeScript', 'Spring Boot', 'Vue.js', 'JPA', 'MySQL', 'Redis'],
   },
   {
     period: '2015.09 — 2020.05',
     company: '(주)애니포인트미디어',
     role: '풀스택 개발자',
-    description: 'TV 광고 플랫폼 1.0/2.0 설계·구축, SKB 통합 광고 시스템 아키텍처 설계. Axon Framework CQRS 패턴 도입, AWS 인프라 구축 및 운영.',
+    description: 'TV 광고 플랫폼 1.0과 2.0을 설계·구축하고 SKB 통합 광고 시스템의 아키텍처를 설계했다. Axon Framework 기반 CQRS와 AWS 인프라를 적용하고 운영했다.',
     techs: ['Kotlin', 'Java', 'TypeScript', 'Spring Boot', 'Spring Cloud', 'Vue.js', 'AngularJS', 'Axon Framework', 'MySQL', 'Redis', 'AWS'],
   },
   {
     period: '2013.02 — 2015.06',
     company: '(주)뚝딱',
     role: '풀스택 / 백엔드 개발자',
-    description: '한국 전력 연구원 수요 예측 시스템 R 기반 통계 모델 설계 및 서비스 API 개발. 특허청 특허출원 프로그램, 자체 해운 솔루션 개발.',
+    description: '한국전력공사 전력연구원 수요 예측 시스템의 R 통계 모델과 서비스 API를 개발했다. 특허청 특허출원 프로그램과 자체 해운 솔루션 개발에도 참여했다.',
     techs: ['Java', 'JavaScript', 'R', 'Spring Framework', 'jQuery', 'MyBatis', 'Oracle'],
   },
 ];
@@ -44,48 +44,49 @@ const skills = [
   {
     category: 'Backend',
     icon: '{ }',
-    items: ['Java', 'Kotlin', 'Spring Boot', 'Spring Cloud', 'Spring WebFlux', 'JPA', 'Querydsl'],
+    items: ['Java', 'Kotlin', 'Spring Boot', 'Spring WebFlux', 'Spring Cloud', 'JPA', 'Querydsl', 'FastAPI'],
     color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400',
   },
   {
-    category: 'AI / ML',
+    category: 'AI Agent',
     icon: 'AI',
-    items: ['Google ADK', 'LangChain4j', 'LangChain', 'OpenAI API', 'Milvus', 'RAG', 'Agent Architecture'],
+    items: ['Google ADK', 'LangGraph', 'LangChain4j', 'LangChain', 'RAG', 'LangSmith', 'OpenAI API'],
     color: 'bg-violet-100 text-violet-700 dark:bg-violet-900/20 dark:text-violet-400',
   },
   {
     category: 'Cloud & Infra',
     icon: 'C',
-    items: ['AWS (ECS, CloudFront, RDS, S3)', 'GCP (GKE)', 'Docker', 'Terraform'],
+    items: ['AWS', 'GCP', 'Azure', 'Docker', 'Terraform'],
     color: 'bg-amber-100 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400',
   },
   {
     category: 'Frontend',
     icon: 'F',
-    items: ['JavaScript', 'TypeScript', 'Vue.js', 'React', 'Nuxt.js'],
+    items: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Vue.js', 'SwiftUI'],
     color: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400',
   },
   {
     category: 'Database',
     icon: 'DB',
-    items: ['MySQL', 'PostgreSQL', 'Redis', 'Oracle', 'Milvus (Vector DB)'],
+    items: ['MySQL', 'PostgreSQL', 'pgvector', 'Redis', 'Oracle', 'Milvus'],
     color: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/20 dark:text-cyan-400',
   },
   {
     category: 'DevOps',
     icon: 'D',
-    items: ['Jenkins', 'GitHub Actions', 'Docker', 'Terraform', 'Git'],
+    items: ['Jenkins', 'GitHub Actions', 'Git', 'SonarQube'],
     color: 'bg-rose-100 text-rose-700 dark:bg-rose-900/20 dark:text-rose-400',
   },
 ];
 
 const certifications = [
-  { name: '정보처리산업기사', org: '한국산업인력공단', year: '2025' },
-  { name: '탑프로그래머스 선정 (2등)', org: '프로그래머스', year: '2021' },
+  { name: '상위 10% 인재 선정', context: 'AX 인재전쟁', year: '2026' },
+  { name: '정보처리산업기사 취득', context: '한국산업인력공단', year: '2025' },
+  { name: '탑프로그래머스 2등', context: '프로그래머스', year: '2021' },
 ];
 ---
 
-<BaseLayout title="About" description="13년차 백엔드 개발자 김삼현의 소개 및 경력 사항">
+<BaseLayout title="About" description="백엔드 개발자 김삼현의 소개와 경력">
   <div class="py-4">
     <!-- Hero -->
     <div class="mb-12">
@@ -93,14 +94,36 @@ const certifications = [
         S
       </div>
       <h1 class="mb-2 text-3xl font-extrabold">{SITE_AUTHOR}</h1>
-      <p class="text-lg font-medium text-primary-600 dark:text-primary-400">Backend / Full-Stack Developer</p>
+      <p class="text-lg font-medium text-primary-600 dark:text-primary-400">Backend / AI Agent Developer</p>
       <p class="mt-4 max-w-lg leading-relaxed text-text-muted dark:text-text-muted-dark">
-        Java와 Kotlin을 중심으로 13년간 Spring 기반 백엔드 시스템을 설계하고 운영해왔습니다.
-        서비스 초기 구축부터 아키텍처 설계와 팀 리딩까지 두루 경험했고
-        최근에는 LG에너지솔루션 글로벌 챗봇 프로젝트에서 멀티 에이전트 시스템을 직접 설계하고 개발하며
-        LLM과 RAG 기술을 프로덕션에 적용했습니다.
+        13년 동안 Java와 Kotlin을 중심으로 Spring 백엔드 시스템을 설계하고 운영해왔습니다.
+        서비스 초기 구축부터 아키텍처 설계와 운영까지 여러 단계를 경험했습니다.
+        최근에는 LG전자 HVAC AI 챗봇의 백엔드와 멀티 에이전트 구조를 설계하고 실제 서비스에 적용했습니다.
       </p>
     </div>
+
+    <!-- Experience Timeline -->
+    <section class="mb-14">
+      <h2 class="mb-6 text-xl font-bold">Experience</h2>
+      <div class="space-y-6">
+        {experiences.map((exp) => (
+          <div class="relative rounded-xl border border-border p-5 pl-6 dark:border-border-dark">
+            <div class="absolute left-0 top-6 h-8 w-1 rounded-r-full bg-gradient-to-b from-primary-500 to-accent-500" />
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-text-muted-dark">{exp.period}</p>
+            <h3 class="mt-1 text-lg font-bold">{exp.company}</h3>
+            <p class="text-sm font-medium text-primary-600 dark:text-primary-400">{exp.role}</p>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted dark:text-text-muted-dark">{exp.description}</p>
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              {exp.techs.map((tech) => (
+                <span class="rounded-md bg-gray-50 px-2 py-0.5 text-xs font-medium text-text-muted dark:bg-gray-800/50 dark:text-text-muted-dark">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
 
     <!-- Skills -->
     <section class="mb-14">
@@ -126,51 +149,45 @@ const certifications = [
       </div>
     </section>
 
-    <!-- Experience Timeline -->
-    <section class="mb-14">
-      <h2 class="mb-6 text-xl font-bold">Experience</h2>
-      <div class="space-y-6">
-        {experiences.map((exp) => (
-          <div class="relative rounded-xl border border-border p-5 pl-6 dark:border-border-dark">
-            <div class="absolute left-0 top-6 h-8 w-1 rounded-r-full bg-gradient-to-b from-primary-500 to-accent-500" />
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-muted dark:text-text-muted-dark">{exp.period}</p>
-            <h3 class="mt-1 text-lg font-bold">{exp.company}</h3>
-            <p class="text-sm font-medium text-primary-600 dark:text-primary-400">{exp.role}</p>
-            <p class="mt-2 text-sm leading-relaxed text-text-muted dark:text-text-muted-dark">{exp.description}</p>
-            <div class="mt-3 flex flex-wrap gap-1.5">
-              {exp.techs.map((tech) => (
-                <span class="rounded-md bg-gray-50 px-2 py-0.5 text-xs font-medium text-text-muted dark:bg-gray-800/50 dark:text-text-muted-dark">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
     <!-- Certifications -->
     <section class="mb-14">
       <h2 class="mb-6 text-xl font-bold">Certifications & Awards</h2>
-      <div class="space-y-3">
+      <div class="grid gap-3 md:grid-cols-3">
         {certifications.map((cert) => (
-          <div class="flex items-center justify-between rounded-xl border border-border p-4 dark:border-border-dark">
-            <div>
-              <p class="font-semibold">{cert.name}</p>
-              <p class="text-sm text-text-muted dark:text-text-muted-dark">{cert.org}</p>
+          <div class="card-hover relative overflow-hidden rounded-2xl border border-border p-5 dark:border-border-dark">
+            <div class="absolute inset-x-0 top-0 h-0.5 bg-primary-500" aria-hidden="true" />
+            <div class="flex items-center justify-between gap-3 text-xs font-semibold text-text-muted dark:text-text-muted-dark">
+              <span>{cert.context}</span>
+              <span>{cert.year}</span>
             </div>
-            <span class="text-sm font-medium text-text-muted dark:text-text-muted-dark">{cert.year}</span>
+            <p class="mt-4 font-semibold">{cert.name}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- Education & Programs -->
     <section class="mb-14">
-      <h2 class="mb-6 text-xl font-bold">Education</h2>
-      <div class="rounded-xl border border-border p-4 dark:border-border-dark">
-        <p class="font-semibold">학점은행제 — 컴퓨터 공학 (학사)</p>
-        <p class="text-sm text-text-muted dark:text-text-muted-dark">2024.06 ~ 현재 (진행 중)</p>
+      <h2 class="mb-6 text-xl font-bold">Education & Programs</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="card-hover relative overflow-hidden rounded-2xl border border-border p-5 dark:border-border-dark">
+          <div class="absolute inset-x-0 top-0 h-0.5 bg-accent-500" aria-hidden="true" />
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs font-semibold text-text-muted dark:text-text-muted-dark">2026 — 현재</span>
+            <span class="rounded-full bg-green-100 px-2 py-0.5 text-[11px] font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-300">진행 중</span>
+          </div>
+          <p class="mt-5 font-semibold">이어드림스쿨 6기 심화과정</p>
+          <p class="mt-1 text-sm text-text-muted dark:text-text-muted-dark">스타트업 AI 기술인력양성</p>
+        </div>
+        <div class="card-hover relative overflow-hidden rounded-2xl border border-border p-5 dark:border-border-dark">
+          <div class="absolute inset-x-0 top-0 h-0.5 bg-accent-500" aria-hidden="true" />
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs font-semibold text-text-muted dark:text-text-muted-dark">2024.06 — 현재</span>
+            <span class="rounded-full bg-green-100 px-2 py-0.5 text-[11px] font-semibold text-green-700 dark:bg-green-900/30 dark:text-green-300">진행 중</span>
+          </div>
+          <p class="mt-5 font-semibold">학점은행제 · 컴퓨터공학 학사</p>
+          <p class="mt-1 text-sm text-text-muted dark:text-text-muted-dark">컴퓨터공학 전공</p>
+        </div>
       </div>
     </section>
 

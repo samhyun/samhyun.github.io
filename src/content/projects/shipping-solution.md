@@ -1,6 +1,6 @@
 ---
 title: '자체 해운 솔루션'
-description: '항해 견적(Estimation) 자동 계산을 위한 API 및 UI 개발. Java/Spring 백엔드와 Knockout.js 기반 프론트엔드 구현.'
+description: '항해 견적을 계산하는 Java/Spring API와 Knockout.js 화면을 개발했다.'
 period: '2013.02 — 2013.09'
 role: '풀스택 개발자'
 techStack: ['Java', 'Spring', 'JavaScript', 'jQuery', 'Knockout.js']
@@ -9,12 +9,6 @@ highlights:
 order: 11
 ---
 
-## 프로젝트 개요
+## 담당 내용
 
-자체 해운 솔루션 프로젝트에서 항해 견적(Estimation) 자동 계산을 위한 API 및 UI를 개발했습니다.
-
-## 성과
-
-- Back-end: Java, Spring 기반 견적 계산 API 개발
-- Front-end: JavaScript, jQuery, Knockout.js 활용 화면 개발
-- 주요 기능 구현 및 API 설계 완료
+항해 견적 계산 규칙을 Java/Spring API로 구현하고 JavaScript, jQuery, Knockout.js로 만든 화면과 연결했다.
