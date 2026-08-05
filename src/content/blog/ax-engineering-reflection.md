@@ -7,7 +7,7 @@ tags: ['ax', 'agent-experience', 'harness-engineering', 'context-engineering', '
 draft: false
 ---
 
-AX 인재전쟁 예선에서 상위 약 10%에 선정됐지만 본선 진출에는 실패했다. 이 일을 계기로 내가 코딩 에이전트와 일하는 방식을 한번 돌아보게 됐다.
+AX 인재전쟁 예선에서 상위 10% 인재로 선정됐지만 본선 진출에는 실패했다. 어떤 부분이 부족했는지 고민해보다가 내가 코딩 에이전트와 일하는 방식을 한번 돌아보게 됐다.
 
 ![OpenAI와 조코딩AX파트너스가 함께한 AX 인재전쟁 공식 이미지](/blog/ax-engineering-reflection/ax-hackathon-og-cover.jpg)
 
