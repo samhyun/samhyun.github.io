@@ -1,6 +1,6 @@
 ---
 title: '대화형 여행 계획 에이전트 (Trip Agent)'
-description: '대화로 여행지를 좁히고 명소·항공·숙소를 검색한 뒤 동선과 일정, 예약까지 하나의 채팅 화면에서 처리하는 멀티턴 에이전트. LangGraph supervisor 구조로 워커를 오케스트레이션한다.'
+description: '대화로 여행지를 좁히고 명소·항공·숙소를 검색한 뒤 동선과 일정, 예약 시뮬레이션까지 하나의 채팅 화면에서 처리하는 멀티턴 에이전트. LangGraph supervisor 구조로 워커를 오케스트레이션한다.'
 period: '2026.07'
 role: '풀스택 개발자 (개인)'
 type: personal

@@ -12,7 +12,7 @@ highlights:
 links:
   - label: 'GitHub — resume-assistant'
     url: 'https://github.com/samhyun/resume-assistant'
-order: 12
+order: 14
 ---
 
 ## 배경

@@ -9,7 +9,7 @@ highlights:
   - 'Router → LifeAgent + ReflectAgent 계층적 에이전트 아키텍처 설계'
   - '생활 요청을 7개 범주로 분류하고 신뢰도에 따라 서브 에이전트로 라우팅'
   - 'pgvector 시맨틱 메모리 검색 및 SwiftUI iOS 앱 개발'
-order: 14
+order: 15
 ---
 
 ## 배경
