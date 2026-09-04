@@ -14,6 +14,7 @@ const categoryLabels: Record<string, string> = {
   ai: 'AI & Chatbot',
   testing: 'Testing',
   devops: 'DevOps',
+  analysis: 'Data Analysis',
   etc: 'Blog',
 };
 

@@ -2,7 +2,7 @@
 title: '53GB WGS 데이터를 처리하는 29단계 파이프라인 만들기'
 description: 'PawCode에서 약 8억 개의 시퀀싱 리드를 분석할 도구를 비교하고 하루 가까이 걸리는 작업을 중단된 단계부터 다시 실행할 수 있게 만든 과정을 정리했다.'
 pubDate: 2026-09-04
-category: 'devops'
+category: 'analysis'
 tags: ['pawcode', 'bioinformatics', 'wgs', 'pipeline', 'deepvariant', 'reproducibility']
 featured: false
 ---
