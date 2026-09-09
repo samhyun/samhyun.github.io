@@ -131,3 +131,4 @@ PawCode에서 순위는 검토 순서를 정하는 보조 수단이다. 이 원�
 
 1. [53GB WGS 데이터를 처리하는 29단계 파이프라인 만들기](/blog/wgs-analysis-pipeline-design)
 2. 변이 후보의 근거와 검토 순위
+3. [대화로 다루는 유전체 분석과 변이 해석](/blog/pawcode-langgraph-agent-tools)
