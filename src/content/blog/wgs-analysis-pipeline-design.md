@@ -116,3 +116,4 @@ PawCode에서는 직접 검증한 실행 구성 하나를 기본값으로 제공
 1. 53GB WGS 데이터를 처리하는 29단계 파이프라인 만들기
 2. [변이 후보의 근거와 검토 순위](/blog/pawcode-variant-evidence-ranking)
 3. [대화로 다루는 유전체 분석과 변이 해석](/blog/pawcode-langgraph-agent-tools)
+4. [PawCode의 논문 검색 구성과 평가](/blog/pawcode-rag-evaluation)

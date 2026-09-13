@@ -132,3 +132,4 @@ PawCode에서는 근거를 다음 성격으로 나눠 보관했다.
 1. [53GB WGS 데이터를 처리하는 29단계 파이프라인 만들기](/blog/wgs-analysis-pipeline-design)
 2. 변이 후보의 근거와 검토 순위
 3. [대화로 다루는 유전체 분석과 변이 해석](/blog/pawcode-langgraph-agent-tools)
+4. [PawCode의 논문 검색 구성과 평가](/blog/pawcode-rag-evaluation)
