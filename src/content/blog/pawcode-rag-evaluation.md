@@ -144,3 +144,4 @@ between lipid storage and mobilization during fasting.
 2. [변이 후보의 근거와 검토 순위](/blog/pawcode-variant-evidence-ranking)
 3. [대화로 다루는 유전체 분석과 변이 해석](/blog/pawcode-langgraph-agent-tools)
 4. PawCode의 논문 검색 구성과 평가
+5. [PawCode 에이전트의 가드레일과 실행 기록](/blog/pawcode-ai-operations)
