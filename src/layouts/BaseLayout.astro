@@ -19,6 +19,8 @@ const {
 } = Astro.props;
 
 const ogImageURL = new URL(ogImage, Astro.site);
+// 미리보기 디자인을 바꾸면 올린다 — 메신저가 캐시한 예전 이미지를 다시 받게 한다
+ogImageURL.searchParams.set('v', '2');
 
 const pageTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
