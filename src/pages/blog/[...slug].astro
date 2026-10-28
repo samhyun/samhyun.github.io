@@ -15,6 +15,8 @@ const post = Astro.props;
 const { Content, headings } = await render(post);
 
 const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+// 목차가 없는 글은 본문을 가운데 한 열로 둔다
+const hasToc = tocHeadings.length > 0;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} ogImage={`/og/${post.id}.png`} wide>
@@ -24,7 +26,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
       <circle cx="40" cy="120" r="16" fill="var(--lilac)" stroke="var(--edge)" stroke-width="3" />
       <path d="M140 118 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="var(--plum)" />
     </svg>
-    <div class="relative mx-auto max-w-6xl px-5 pt-10 pb-14 md:pt-20 md:pb-24">
+    <div class:list={['relative mx-auto px-5 pt-10 pb-14 md:pt-20 md:pb-24', hasToc ? 'max-w-6xl' : 'max-w-[46.5rem]']}>
       <p class="flex items-center gap-2 text-sm font-semibold text-ink-muted">
         <span class="h-3 w-3 rounded-full ring-2 ring-ink/15" style={`background:${CATEGORY_COLORS[post.data.category]}`} />
         {CATEGORY_LABELS[post.data.category]}
@@ -47,7 +49,7 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
     </svg>
   </header>
 
-  <div class="grid gap-12 lg:grid-cols-[minmax(0,44rem)_15rem] lg:justify-between">
+  <div class:list={['grid gap-12', hasToc ? 'lg:grid-cols-[minmax(0,44rem)_15rem] lg:justify-between' : 'mx-auto max-w-[44rem]']}>
     <article class="w-full min-w-0">
       <!-- 좁은 화면 목차 -->
       {tocHeadings.length > 0 && (
