@@ -1,0 +1,100 @@
+---
+// Projects 배너 그림 — 서버 블록 위에 브라우저 창을 쌓고, 블록 하나가 내려오는 중
+const edge = 'var(--edge)';
+const shadow = 'var(--edge-shadow)';
+const mark = 'var(--on-pastel)';
+---
+
+<svg class="w-full" viewBox="0 0 380 250" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- ground -->
+  <path
+    d="M24 228 C 70 206, 150 210, 200 218 S 320 222, 356 210 C 372 218, 368 240, 344 242 L 44 242 C 18 242, 10 236, 24 228 Z"
+    fill="var(--mint)"
+    stroke={edge}
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+
+  <!-- server block (bottom) -->
+  <rect x="84" y="166" width="150" height="50" rx="12" fill={shadow} transform="translate(5 5)" />
+  <rect x="84" y="166" width="150" height="50" rx="12" fill="var(--peach)" stroke={edge} stroke-width="3" />
+  <g fill={mark}>
+    <circle cx="106" cy="191" r="5" /><rect x="122" y="187" width="56" height="8" rx="4" />
+  </g>
+  <circle class="led" cx="212" cy="191" r="5" fill="var(--mint)" stroke={mark} stroke-width="2" />
+
+  <!-- browser window (middle) -->
+  <rect x="96" y="76" width="126" height="90" rx="12" fill={shadow} transform="translate(5 5)" />
+  <rect x="96" y="76" width="126" height="90" rx="12" fill="#fffaf0" stroke={edge} stroke-width="3" />
+  <path d="M96 100 h126" stroke={edge} stroke-width="3" />
+  <path d="M108 76 h102 a12 12 0 0 1 12 12 v12 h-126 v-12 a12 12 0 0 1 12 -12 z" fill="var(--lilac)" />
+  <rect x="96" y="76" width="126" height="90" rx="12" stroke={edge} stroke-width="3" />
+  <g fill={mark}>
+    <circle cx="110" cy="88" r="3.5" /><circle cx="121" cy="88" r="3.5" /><circle cx="132" cy="88" r="3.5" />
+  </g>
+  <rect x="110" y="114" width="44" height="38" rx="6" fill="var(--butter)" stroke={mark} stroke-width="2.5" />
+  <g stroke={mark} stroke-width="3" stroke-linecap="round" opacity="0.75">
+    <path d="M166 120 h42" /><path d="M166 134 h30" /><path d="M166 148 h38" />
+  </g>
+
+  <!-- block dropping in -->
+  <path d="M296 30 v56" stroke={edge} stroke-width="3" stroke-linecap="round" stroke-dasharray="1 9" />
+  <g class="drop">
+    <rect x="270" y="96" width="52" height="44" rx="10" fill={shadow} transform="translate(4 4)" />
+    <rect x="270" y="96" width="52" height="44" rx="10" fill="var(--butter)" stroke={edge} stroke-width="3" />
+    <path d="M286 118 h20 M296 108 v20" stroke={mark} stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- gear -->
+  <g class="gear">
+    <g transform="translate(306 196)">
+      <g fill="var(--lilac)" stroke={edge} stroke-width="3" stroke-linejoin="round">
+        <path d="M-6 -24 h12 l2 7 l7 3 l6 -4 l8 8 l-4 6 l3 7 l7 2 v12 l-7 2 l-3 7 l4 6 l-8 8 l-6 -4 l-7 3 l-2 7 h-12 l-2 -7 l-7 -3 l-6 4 l-8 -8 l4 -6 l-3 -7 l-7 -2 v-12 l7 -2 l3 -7 l-4 -6 l8 -8 l6 4 l7 -3 z" />
+      </g>
+      <circle r="7" fill="#fffaf0" stroke={edge} stroke-width="3" />
+    </g>
+  </g>
+
+  <!-- sparkles -->
+  <g fill="var(--plum)">
+    <path class="spark" d="M54 92 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" />
+    <path class="spark spark-2" d="M246 46 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" />
+  </g>
+</svg>
+
+<style>
+  .drop {
+    animation: bob 3.2s ease-in-out infinite;
+  }
+
+  .gear {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spin 10s linear infinite;
+  }
+
+  .led {
+    animation: blink 2.4s steps(2, jump-none) infinite;
+  }
+
+  .spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  .spark-2 { animation-delay: -1.5s; }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes blink {
+    0%, 100% { fill: var(--mint); }
+    50% { fill: var(--butter); }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(0.6) rotate(45deg); opacity: 0.6; }
+  }
+</style>

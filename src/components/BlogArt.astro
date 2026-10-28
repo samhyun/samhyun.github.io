@@ -1,0 +1,97 @@
+---
+// Blog 배너 그림 — 펼친 노트, 연필, 포스트잇
+const edge = 'var(--edge)';
+const shadow = 'var(--edge-shadow)';
+const mark = 'var(--on-pastel)';
+---
+
+<svg class="blog-art w-full" viewBox="0 0 380 250" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- sticky notes behind -->
+  <g class="note note-1">
+    <rect x="262" y="22" width="78" height="72" rx="8" fill={shadow} transform="translate(4 4) rotate(8 301 58)" />
+    <rect x="262" y="22" width="78" height="72" rx="8" fill="var(--mint)" stroke={edge} stroke-width="3" transform="rotate(8 301 58)" />
+    <g stroke={mark} stroke-width="3" stroke-linecap="round" transform="rotate(8 301 58)">
+      <path d="M276 46 h40" /><path d="M276 60 h28" />
+    </g>
+  </g>
+  <g class="note note-2">
+    <rect x="22" y="40" width="64" height="60" rx="8" fill={shadow} transform="translate(4 4) rotate(-10 54 70)" />
+    <rect x="22" y="40" width="64" height="60" rx="8" fill="var(--lilac)" stroke={edge} stroke-width="3" transform="rotate(-10 54 70)" />
+    <path d="M40 72 l8 8 l16 -18" stroke={mark} stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-10 54 70)" />
+  </g>
+
+  <!-- notebook -->
+  <path d="M70 92 Q 130 78 190 96 Q 250 78 310 92 L 310 222 Q 250 208 190 226 Q 130 208 70 222 Z" fill={shadow} transform="translate(6 6)" />
+  <path d="M70 92 Q 130 78 190 96 L 190 226 Q 130 208 70 222 Z" fill="#fffaf0" stroke={edge} stroke-width="3" stroke-linejoin="round" />
+  <path d="M190 96 Q 250 78 310 92 L 310 222 Q 250 208 190 226 Z" fill="#fffaf0" stroke={edge} stroke-width="3" stroke-linejoin="round" />
+  <path d="M190 96 L 190 226" stroke={edge} stroke-width="3" />
+
+  <!-- left page: code -->
+  <text x="88" y="140" font-family="ui-monospace, Menlo, monospace" font-size="26" font-weight="700" fill="var(--plum)">{'{ }'}</text>
+  <g stroke={mark} stroke-width="3" stroke-linecap="round" opacity="0.75">
+    <path d="M92 164 h70" /><path d="M104 180 h52" /><path d="M92 196 h62" />
+  </g>
+
+  <!-- right page: checklist -->
+  <g stroke={mark} stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="208" y="118" width="12" height="12" rx="3" fill="var(--butter)" />
+    <path d="M230 124 h56" opacity="0.75" />
+    <rect x="208" y="146" width="12" height="12" rx="3" fill="var(--butter)" />
+    <path d="M230 152 h44" opacity="0.75" />
+    <rect x="208" y="174" width="12" height="12" rx="3" />
+    <path d="M230 180 h50" opacity="0.75" />
+  </g>
+
+  <!-- pencil -->
+  <g class="pencil">
+    <g transform="rotate(-38 296 168)">
+      <rect x="250" y="160" width="96" height="20" rx="4" fill={shadow} transform="translate(4 4)" />
+      <rect x="262" y="160" width="74" height="20" fill="var(--butter)" stroke={edge} stroke-width="3" />
+      <rect x="336" y="160" width="16" height="20" rx="4" fill="var(--peach)" stroke={edge} stroke-width="3" />
+      <path d="M262 160 L 240 170 L 262 180 Z" fill="#fffaf0" stroke={edge} stroke-width="3" stroke-linejoin="round" />
+      <path d="M246 167 L 240 170 L 246 173 Z" fill={mark} />
+      <path d="M266 170 h66" stroke={mark} stroke-width="2" opacity="0.4" />
+    </g>
+  </g>
+
+  <!-- sparkle -->
+  <path class="spark" d="M352 128 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="var(--plum)" />
+</svg>
+
+<style>
+  .note {
+    transform-box: fill-box;
+    transform-origin: top center;
+    animation: sway 5s ease-in-out infinite;
+  }
+  .note-2 { animation-delay: -2.5s; }
+
+  .pencil {
+    transform-box: fill-box;
+    transform-origin: 20% 80%;
+    animation: scribble 2.2s ease-in-out infinite;
+  }
+
+  .spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes scribble {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-3px, 2px) rotate(-2deg); }
+    50% { transform: translate(2px, 0) rotate(1deg); }
+    75% { transform: translate(-2px, 2px) rotate(-1deg); }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(0.6) rotate(45deg); opacity: 0.6; }
+  }
+</style>

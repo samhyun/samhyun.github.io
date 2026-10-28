@@ -1,127 +1,91 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import PostItem from '../../components/PostItem.astro';
+import BlogArt from '../../components/BlogArt.astro';
 import { getCollection } from 'astro:content';
+import { CATEGORY_LABELS, CATEGORY_COLORS } from '../../consts';
 
 const posts = (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const categories = ['all', 'spring', 'aws', 'ai', 'workflow', 'testing', 'devops', 'analysis', 'etc'] as const;
-const categoryLabels: Record<string, string> = {
-  all: '전체',
-  spring: 'Spring',
-  aws: 'AWS & Infra',
-  ai: 'AI 시스템',
-  workflow: 'AI 개발 워크플로',
-  testing: 'Testing',
-  devops: 'DevOps',
-  analysis: 'Data Analysis',
-  etc: '기타',
-};
+const categoryLabels: Record<string, string> = { all: '전체', ...CATEGORY_LABELS };
 
-const categoryColors: Record<string, string> = {
-  spring: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
-  aws: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
-  ai: 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400',
-  workflow: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
-  testing: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400',
-  devops: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400',
-  analysis: 'bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400',
-  etc: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400',
-};
+const years = [...new Set(posts.map((post) => post.data.pubDate.getFullYear()))];
+const usedCategoryCount = new Set(posts.map((post) => post.data.category)).size;
+const description = '실무에서 겪은 문제 해결 과정과 기술적 의사결정을 기록합니다.';
 ---
 
-<BaseLayout title="Blog" description="실무에서 겪은 문제 해결 과정과 기술적 의사결정을 기록합니다.">
-  <div class="py-4">
-    <h1 class="mb-2 text-3xl font-extrabold">Blog</h1>
-    <p class="mb-8 text-text-muted dark:text-text-muted-dark">
-      실무에서 겪은 문제 해결 과정과 기술적 의사결정을 기록합니다.
-    </p>
+<BaseLayout title="Blog" description={description}>
+  <PageBanner slot="banner" title="Blog" description={description}>
+    <ul class="mt-6 flex flex-wrap gap-2">
+      <li class="rounded-full border-2 border-edge bg-paper px-3 py-1 text-sm font-semibold text-ink-muted">
+        글 <span class="font-display text-ink">{posts.length}</span>편
+      </li>
+      <li class="rounded-full border-2 border-edge bg-paper px-3 py-1 text-sm font-semibold text-ink-muted">
+        카테고리 <span class="font-display text-ink">{usedCategoryCount}</span>개
+      </li>
+    </ul>
+    <BlogArt slot="art" />
+  </PageBanner>
 
-    <!-- Category Filter -->
-    <div class="mb-8 flex flex-wrap gap-2" id="category-filter">
-      {categories.map((cat) => (
-        <button
-          data-category={cat}
-          class:list={[
-            'rounded-lg px-3.5 py-1.5 text-sm font-medium transition-all',
-            cat === 'all'
-              ? 'bg-primary-600 text-white shadow-sm shadow-primary-500/25 dark:bg-primary-500'
-              : 'bg-gray-100 text-text-muted hover:bg-gray-200 dark:bg-gray-800 dark:text-text-muted-dark dark:hover:bg-gray-700',
-          ]}
-        >
-          {categoryLabels[cat]}
-        </button>
-      ))}
-    </div>
-
-    <!-- Posts List -->
-    <div class="stagger-children space-y-4" id="posts-list">
-      {posts.map((post) => (
-        <article data-category={post.data.category}>
-          <a href={`/blog/${post.id}`} class="group block rounded-xl border border-border bg-surface p-5 transition-all hover:border-primary-200 hover:shadow-md hover:-translate-y-0.5 dark:border-border-dark dark:bg-surface-alt-dark dark:hover:border-primary-800">
-            <div class="flex items-start justify-between gap-4">
-              <div class="min-w-0">
-                <div class="mb-2 flex items-center gap-2">
-                  <span class:list={['rounded-md px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide', categoryColors[post.data.category]]}>
-                    {categoryLabels[post.data.category]}
-                  </span>
-                  <time class="text-xs text-text-muted dark:text-text-muted-dark" datetime={post.data.pubDate.toISOString()}>
-                    {post.data.pubDate.toLocaleDateString('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' })}
-                  </time>
-                </div>
-                <h2 class="text-lg font-bold group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {post.data.title}
-                </h2>
-                <p class="mt-1.5 text-sm leading-relaxed text-text-muted dark:text-text-muted-dark line-clamp-2">
-                  {post.data.description}
-                </p>
-                <div class="mt-3 flex flex-wrap items-center gap-2">
-                  {post.data.tags.slice(0, 4).map((tag) => (
-                    <span class="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-400">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <svg class="mt-3 h-5 w-5 shrink-0 text-text-muted/30 transition-all group-hover:text-primary-500 group-hover:translate-x-1 dark:text-text-muted-dark/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-            </div>
-          </a>
-        </article>
-      ))}
-    </div>
-
-    {posts.length === 0 && (
-      <p class="text-text-muted dark:text-text-muted-dark">아직 작성된 글이 없습니다.</p>
-    )}
+  <!-- Category Filter -->
+  <div class="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 pt-1 pb-2 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0" id="category-filter">
+    {categories.map((cat) => (
+      <button
+        type="button"
+        data-category={cat}
+        aria-pressed={cat === 'all' ? 'true' : 'false'}
+        class="filter-chip inline-flex shrink-0 cursor-pointer items-center whitespace-nowrap gap-2 rounded-full border-2 border-rule px-3.5 py-1.5 text-sm font-semibold text-ink-muted transition-all hover:border-edge hover:text-ink"
+      >
+        {cat !== 'all' && (
+          <span class="h-2.5 w-2.5 rounded-full" style={`background:${CATEGORY_COLORS[cat]}`} />
+        )}
+        {categoryLabels[cat]}
+      </button>
+    ))}
   </div>
+
+  <!-- Posts List -->
+  <div id="posts-list">
+    {years.map((year) => (
+      <section data-year-group class="mt-12">
+        <h2 class="mb-2 font-display text-2xl text-ink-faint">{year}</h2>
+        <div class="divide-y-2 divide-dashed divide-rule">
+          {posts
+            .filter((post) => post.data.pubDate.getFullYear() === year)
+            .map((post) => <PostItem post={post} />)}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  {posts.length === 0 && (
+    <p class="mt-10 text-ink-muted">아직 작성된 글이 없습니다.</p>
+  )}
 </BaseLayout>
 
 <script>
   function setupFilter() {
-    const buttons = document.querySelectorAll('#category-filter button');
-    const posts = document.querySelectorAll('#posts-list article');
-
-    const activeClass = ['bg-primary-600', 'text-white', 'shadow-sm', 'shadow-primary-500/25', 'dark:bg-primary-500'];
-    const inactiveClass = ['bg-gray-100', 'text-text-muted', 'hover:bg-gray-200', 'dark:bg-gray-800', 'dark:text-text-muted-dark', 'dark:hover:bg-gray-700'];
+    const buttons = document.querySelectorAll<HTMLElement>('#category-filter button');
+    const posts = document.querySelectorAll<HTMLElement>('#posts-list article');
+    const groups = document.querySelectorAll<HTMLElement>('#posts-list [data-year-group]');
 
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const category = (btn as HTMLElement).dataset.category;
+        const category = btn.dataset.category;
 
-        buttons.forEach((b) => {
-          activeClass.forEach(c => b.classList.remove(c));
-          inactiveClass.forEach(c => b.classList.add(c));
-        });
-        inactiveClass.forEach(c => btn.classList.remove(c));
-        activeClass.forEach(c => btn.classList.add(c));
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
 
         posts.forEach((post) => {
-          const el = post as HTMLElement;
-          if (category === 'all' || el.dataset.category === category) {
-            el.style.display = '';
-          } else {
-            el.style.display = 'none';
-          }
+          const visible = category === 'all' || post.dataset.category === category;
+          post.style.display = visible ? '' : 'none';
+        });
+
+        groups.forEach((group) => {
+          const hasVisible = [...group.querySelectorAll<HTMLElement>('article')].some((a) => a.style.display !== 'none');
+          group.style.display = hasVisible ? '' : 'none';
         });
       });
     });

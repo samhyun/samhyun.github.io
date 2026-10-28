@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageBanner from '../../components/PageBanner.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,70 +16,71 @@ const { Content } = await render(project);
 ---
 
 <BaseLayout title={project.data.title} description={project.data.description}>
-  <article>
-    <header class="mb-8">
-      <a href="/projects" class="mb-4 inline-block text-sm text-primary-600 hover:underline dark:text-primary-400">
-        &larr; 프로젝트 목록
-      </a>
-      <h1 class="text-3xl font-bold">{project.data.title}</h1>
-      <p class="mt-2 text-text-muted dark:text-text-muted-dark">{project.data.description}</p>
-
-      <div class="mt-4 grid grid-cols-2 gap-4 rounded-lg border border-border p-4 dark:border-border-dark">
-        <div>
-          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark">역할</p>
-          <p class="mt-1 font-medium">{project.data.role}</p>
-        </div>
-        <div>
-          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark">기간</p>
-          <p class="mt-1 font-medium">{project.data.period}</p>
-        </div>
+  <PageBanner slot="banner" title={project.data.title} description={project.data.description}>
+    <div class="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+      <div class="rounded-xl border-2 border-edge bg-paper px-4 py-2.5">
+        <p class="text-xs font-bold text-ink-faint">역할</p>
+        <p class="mt-1 text-sm font-bold text-ink">{project.data.role}</p>
       </div>
+      <div class="rounded-xl border-2 border-edge bg-paper px-4 py-2.5">
+        <p class="text-xs font-bold text-ink-faint">기간</p>
+        <p class="mt-1 text-sm font-bold text-ink">{project.data.period}</p>
+      </div>
+    </div>
+  </PageBanner>
 
-      <div class="mt-4 flex flex-wrap gap-2">
-        {project.data.techStack.map((tech) => (
-          <span class="rounded-full bg-primary-50 px-3 py-1 text-sm font-medium text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
-            {tech}
-          </span>
+  <article>
+    <a href="/projects" class="link-hl text-sm">&larr; 프로젝트 목록</a>
+
+    <ul class="mt-8 flex flex-wrap gap-2">
+      {project.data.techStack.map((tech, i) => (
+        <li
+          class="rounded-full border-2 border-edge/80 px-3 py-1 text-sm font-semibold text-on-pastel"
+          style={`background:${['var(--mint)', 'var(--butter)', 'var(--lilac)', 'var(--peach)'][i % 4]}`}
+        >
+          {tech}
+        </li>
+      ))}
+    </ul>
+
+    {project.data.links.length > 0 && (
+      <div class="mt-6 flex flex-wrap gap-3">
+        {project.data.links.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${link.label} (새 창에서 열림)`}
+            class="sticker-btn bg-paper"
+          >
+            {link.label}
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
         ))}
       </div>
+    )}
 
-      {project.data.links.length > 0 && (
-        <div class="mt-4 flex flex-wrap gap-2">
-          {project.data.links.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${link.label} (새 창에서 열림)`}
-              class="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-sm font-medium text-text-muted transition-colors hover:border-primary-400 hover:text-primary-600 dark:border-border-dark dark:text-text-muted-dark dark:hover:border-primary-500 dark:hover:text-primary-400"
-            >
-              {link.label}
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-            </a>
+    {project.data.highlights.length > 0 && (
+      <section class="mt-10 rounded-2xl bg-paper-2 px-6 py-5">
+        <h2 class="mb-3 text-xs font-bold text-plum">주요 기여</h2>
+        <ul class="space-y-2">
+          {project.data.highlights.map((h) => (
+            <li class="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-ink">
+              <span class="mt-1 flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full border-2 border-edge bg-mint">
+                <svg class="h-2.5 w-2.5 text-on-pastel" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+              </span>
+              {h}
+            </li>
           ))}
-        </div>
-      )}
+        </ul>
+      </section>
+    )}
 
-      {project.data.highlights.length > 0 && (
-        <div class="mt-4">
-          <p class="text-xs font-semibold uppercase text-text-muted dark:text-text-muted-dark mb-2">주요 기여</p>
-          <ul class="space-y-1">
-            {project.data.highlights.map((h) => (
-              <li class="text-sm flex items-start gap-2">
-                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green-500" />
-                {h}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
-
-    <div class="prose">
+    <div class="prose mt-12">
       <Content />
     </div>
   </article>
@@ -126,28 +128,19 @@ const { Content } = await render(project);
     const header = document.createElement('div');
     header.className = 'code-block-header';
 
-    const dots = document.createElement('div');
-    dots.className = 'code-block-dots';
-    dots.innerHTML = '<span></span><span></span><span></span>';
-
-    const right = document.createElement('div');
-    right.className = 'flex items-center gap-3';
-
+    const langLabel = document.createElement('span');
     if (lang) {
-      const langLabel = document.createElement('span');
       langLabel.className = 'code-block-lang';
       langLabel.textContent = lang;
-      right.appendChild(langLabel);
     }
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.setAttribute('aria-label', '코드 복사');
     btn.innerHTML = `${copyIcon}<span class="copy-label">Copy</span>`;
-    right.appendChild(btn);
 
-    header.appendChild(dots);
-    header.appendChild(right);
+    header.appendChild(langLabel);
+    header.appendChild(btn);
     wrapper.appendChild(header);
     wrapper.appendChild(pre);
 

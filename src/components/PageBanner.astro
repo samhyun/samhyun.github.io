@@ -1,0 +1,46 @@
+---
+// 페이지 상단 파스텔 배너 — 제목, 설명, 아래쪽 물결
+interface Props {
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  width?: 'narrow' | 'wide';
+}
+
+const { title, description, eyebrow, width = 'narrow' } = Astro.props;
+const hasArt = Astro.slots.has('art');
+---
+
+<header class="relative overflow-hidden bg-paper-2">
+  {!hasArt && (
+    <svg class="pointer-events-none absolute top-10 right-[10%] hidden h-32 w-32 md:block" viewBox="0 0 160 160" aria-hidden="true">
+      <circle cx="96" cy="64" r="42" fill="var(--butter)" />
+      <circle cx="36" cy="118" r="14" fill="var(--mint)" stroke="var(--edge)" stroke-width="3" />
+      <path d="M138 116 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 z" fill="var(--plum)" />
+    </svg>
+  )}
+  <div
+    class:list={[
+      'relative mx-auto px-5 pt-10 pb-14 md:pt-16 md:pb-24',
+      width === 'wide' ? 'max-w-6xl' : 'max-w-3xl',
+      hasArt && 'grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_21rem] md:gap-6',
+    ]}
+  >
+    <div>
+      {eyebrow && <p class="eyebrow mb-4 text-plum">{eyebrow}</p>}
+      <h1 class="font-display text-4xl leading-[1.2] text-ink md:text-5xl" style="word-break: keep-all">{title}</h1>
+      {description && (
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted" style="word-break: keep-all">{description}</p>
+      )}
+      <slot />
+    </div>
+    {hasArt && (
+      <div class="mx-auto w-full max-w-[18rem] md:max-w-[21rem]">
+        <slot name="art" />
+      </div>
+    )}
+  </div>
+  <svg class="absolute inset-x-0 -bottom-px h-8 w-full text-paper md:h-12" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="currentColor" d="M0 40 C 320 80, 640 0, 960 36 S 1300 70, 1440 30 L1440 80 L0 80 Z" />
+  </svg>
+</header>

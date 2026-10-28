@@ -1,0 +1,107 @@
+---
+// 백엔드 블록과 에이전트 노드를 이어 그린 장식 일러스트
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const edge = 'var(--edge)';
+const shadow = 'var(--edge-shadow)';
+const mark = 'var(--on-pastel)';
+---
+
+<svg
+  class:list={['scene', className]}
+  viewBox="0 0 560 380"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <!-- sun -->
+  <circle cx="440" cy="92" r="60" fill="var(--butter)" />
+  <circle cx="440" cy="92" r="60" stroke={edge} stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" opacity="0.35" />
+
+  <!-- hill -->
+  <path
+    d="M40 336 C 90 296, 170 300, 250 320 S 440 350, 520 306 C 552 320, 548 368, 500 370 L 74 370 C 30 370, 18 352, 40 336 Z"
+    fill="var(--mint)"
+    stroke={edge}
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+
+  <!-- wires -->
+  <g stroke={edge} stroke-width="3" stroke-linecap="round" stroke-dasharray="1 9">
+    <path d="M196 170 C 260 170, 270 110, 330 110" />
+    <path d="M196 214 C 280 214, 290 214, 360 214" />
+    <path d="M196 258 C 260 258, 280 300, 330 300" />
+  </g>
+
+  <!-- server stack -->
+  <g class="scene-stack">
+    <rect x="74" y="148" width="132" height="132" rx="18" fill={shadow} transform="translate(6 6)" />
+    <rect x="74" y="148" width="132" height="44" rx="14" fill="var(--lilac)" stroke={edge} stroke-width="3" />
+    <rect x="74" y="192" width="132" height="44" rx="14" fill="var(--peach)" stroke={edge} stroke-width="3" />
+    <rect x="74" y="236" width="132" height="44" rx="14" fill="#fffaf0" stroke={edge} stroke-width="3" />
+    <g fill={mark}>
+      <circle cx="96" cy="170" r="5" /><rect x="112" y="166" width="54" height="8" rx="4" />
+      <circle cx="96" cy="214" r="5" /><rect x="112" y="210" width="40" height="8" rx="4" />
+      <circle cx="96" cy="258" r="5" /><rect x="112" y="254" width="62" height="8" rx="4" />
+    </g>
+    <circle class="scene-led" cx="186" cy="170" r="5" fill="var(--mint)" stroke={mark} stroke-width="2" />
+  </g>
+
+  <!-- agent nodes -->
+  <g class="scene-node scene-node-1">
+    <circle cx="352" cy="110" r="26" fill={shadow} transform="translate(4 4)" />
+    <circle cx="352" cy="110" r="26" fill="var(--mint)" stroke={edge} stroke-width="3" />
+    <path d="M342 110 l7 7 l13 -14" stroke={mark} stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <g class="scene-node scene-node-2">
+    <rect x="360" y="188" width="76" height="52" rx="16" fill={shadow} transform="translate(4 4)" />
+    <rect x="360" y="188" width="76" height="52" rx="16" fill="var(--butter)" stroke={edge} stroke-width="3" />
+    <g fill={mark}><circle cx="384" cy="214" r="4.5" /><circle cx="398" cy="214" r="4.5" /><circle cx="412" cy="214" r="4.5" /></g>
+  </g>
+  <g class="scene-node scene-node-3">
+    <circle cx="352" cy="300" r="22" fill={shadow} transform="translate(4 4)" />
+    <circle cx="352" cy="300" r="22" fill="var(--lilac)" stroke={edge} stroke-width="3" />
+    <path d="M344 300 h16 M352 292 v16" stroke={mark} stroke-width="3.5" stroke-linecap="round" />
+  </g>
+
+  <!-- sparkles -->
+  <g fill="var(--plum)">
+    <path class="scene-spark" d="M480 196 l5 13 l13 5 l-13 5 l-5 13 l-5 -13 l-13 -5 l13 -5 z" />
+    <path class="scene-spark scene-spark-2" d="M262 70 l3.5 9 l9 3.5 l-9 3.5 l-3.5 9 l-3.5 -9 l-9 -3.5 l9 -3.5 z" />
+    <path class="scene-spark scene-spark-3" d="M60 96 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" />
+  </g>
+</svg>
+
+<style>
+  .scene-node {
+    animation: bob 4s ease-in-out infinite;
+  }
+  .scene-node-2 { animation-delay: -1.3s; }
+  .scene-node-3 { animation-delay: -2.6s; }
+
+  .scene-spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  .scene-spark-2 { animation-delay: -1s; }
+  .scene-spark-3 { animation-delay: -2s; }
+
+  .scene-led {
+    animation: blink 2.4s steps(2, jump-none) infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(0.6) rotate(45deg); opacity: 0.6; }
+  }
+
+  @keyframes blink {
+    0%, 100% { fill: var(--mint); }
+    50% { fill: var(--butter); }
+  }
+</style>

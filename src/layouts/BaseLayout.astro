@@ -8,12 +8,14 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  wide?: boolean;
 }
 
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   ogImage = '/og-default.png',
+  wide = false,
 } = Astro.props;
 
 const ogImageURL = new URL(ogImage, Astro.site);
@@ -60,6 +62,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       as="style"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans/GmarketSansBold.woff2" />
+    <style is:global>
+      @font-face {
+        font-family: 'Gmarket Sans';
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://cdn.jsdelivr.net/gh/fonts-archive/GmarketSans/GmarketSansBold.woff2') format('woff2');
+      }
+    </style>
 
     <!-- Dark mode init (prevent flash) -->
     <script is:inline>
@@ -76,7 +87,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />
-    <main class="mx-auto w-full max-w-3xl flex-1 px-4 py-8">
+    <slot name="banner" />
+    <main class:list={['mx-auto w-full flex-1 px-5 py-10', wide ? 'max-w-6xl' : 'max-w-3xl']}>
       <slot />
     </main>
     <Footer />
