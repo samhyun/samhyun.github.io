@@ -10,9 +10,13 @@ draft: false
 
 이미지 생성 모델을 쓰다 보니 마음에 드는 그림체를 따로 학습시켜보고 싶어졌다. 인물이나 배경을 바꿔도 선이나 색감이 비슷하게 나올까 궁금해서 이미지를 직접 골라 FLUX.2 klein에 LoRA를 학습시켜 봤다.
 
+## LoRA와 학습 방식
+
 LoRA는 기존 모델에 추가로 학습한 가중치를 붙여 쓰는 방식이다. 이번에는 Runware에서 제공하는 학습 API를 사용했다. 이미지와 설명을 묶어서 올리고 학습이 끝나면 생성할 때 붙여 쓰는 식이다. GPU 환경을 따로 구성할 필요는 없었다.
 
 Runware의 [스타일 LoRA 소개 글](https://runware.ai/blog/introducing-style-lora-training)에 데이터 준비부터 학습과 생성까지 설명돼 있다. klein 4B·9B도 지원 모델에 포함된다. 호랑이가 학습 단계에 따라 종이공예 스타일로 바뀌는 예시도 있는데 여기에 쓴 모델은 Qwen-Image다. 아래는 내가 klein으로 뽑은 결과다.
+
+## 47장으로 시작한 첫 학습
 
 처음에는 47장으로 시작했다. 생성해둔 이미지 중에서 원하는 그림체에 가까운 것들을 골랐는데 인물만 있으면 배경이나 효과는 어떻게 나올지 알기 어려워서 이쪽도 같이 넣었다. 이미지마다 무엇을 그린 건지 설명하는 캡션을 붙이고 공통 트리거 단어를 추가했다.
 
@@ -38,6 +42,8 @@ Runware의 [스타일 LoRA 소개 글](https://runware.ai/blog/introducing-style
 
 4B와 9B 사이에는 단일 컷을 요청하는 프롬프트도 수정했다. 그래서 두 모델의 성능 비교보다는 각 모델 안에서 학습 전후가 어떻게 달라지는지를 봤다.
 
+## 데이터를 168장으로 늘리기
+
 다음에는 데이터를 늘려보기로 했다. 비슷한 인물만 반복되지 않도록 성별이나 나이, 체형을 바꾸고 실내외 배경과 손으로 소품을 사용하는 장면도 보충했다.
 
 그런데 새로 만든 그림들을 기존 이미지 옆에 놓고 보니 그림체가 다른 것들이 꽤 있었다. 인물은 괜찮은데 배경의 나뭇결이나 바닥 묘사가 너무 자세하거나, 손이 짧고 둥글어서 아이 손처럼 보이는 경우가 있었다. 두 손이 양쪽에서 들어오는데 누구의 손인지 알아보기 어려운 그림도 있었다. 이런 것들을 다시 고르고 수정하면서 최종적으로 168장을 모았다.
@@ -50,6 +56,8 @@ Runware는 [데이터 구성 안내](https://runware.ai/blog/introducing-style-l
 
 [Runware의 캡션 안내](https://runware.ai/blog/introducing-style-lora-training#captioning)도 화풍 자체보다 대상·장면·구도·조명을 설명하는 쪽이다. BFL이 Hugging Face에 올린 [klein LoRA 학습 가이드](https://huggingface.co/blog/black-forest-labs/flux-2-klein-lora#caption-the-content-never-the-style)에도 같은 방향의 설명이 있다. 옷 색이나 자세는 프롬프트로 바꾸고 공통 그림체는 학습시키려는 방식이다.
 
+## 스텝을 나눠 이어 학습하기
+
 168장으로는 새로 학습을 시작했다. 1,000스텝 결과를 보고 500스텝씩 두 번 더 돌려서 2,000스텝까지 갔다. 중간 결과도 남겨두고 같은 장면을 뽑아 비교했다.
 
 이어 학습은 Runware 글의 [Continue training](https://runware.ai/blog/introducing-style-lora-training#continue-training-instead-of-starting-over)에 설명돼 있다. 이때 지정하는 스텝은 누적 목표가 아니라 추가 학습량이다. 1,000스텝 결과에서 1,500스텝까지 가려면 500을 더 학습하는 식이다.
@@ -61,6 +69,8 @@ Runware는 [데이터 구성 안내](https://runware.ai/blog/introducing-style-l
 | 2,000 | 500스텝 | $1.505 |
 
 학습비는 합쳐서 $6.02, 비교 이미지 12장까지 포함하면 $6.0668이었다. 2026년 10월 실행 당시 API에 기록된 금액이고 앞선 47장 실험과 학습용 이미지 제작비는 빠져 있다. 학습용 이미지를 만든 도구에서는 비용을 알려주지 않아 전체 비용까지 계산하지는 못했다.
+
+## 인물과 배경 비교
 
 이미지를 생성할 때는 프롬프트와 시드를 고정했다. 해상도는 1024×1536, 추론은 4스텝, CFG는 3.5, LoRA 강도는 1.0이었다. 참조 이미지 없이 LoRA만 붙였다.
 
@@ -87,6 +97,8 @@ Runware는 [데이터 구성 안내](https://runware.ai/blog/introducing-style-l
 | [![집 배경 1000스텝](/blog/flux2-klein-style-lora/snow-168-1000.png)](/blog/flux2-klein-style-lora/snow-168-1000.png) | [![집 배경 1500스텝](/blog/flux2-klein-style-lora/snow-168-1500.png)](/blog/flux2-klein-style-lora/snow-168-1500.png) | [![집 배경 2000스텝](/blog/flux2-klein-style-lora/snow-168-2000.png)](/blog/flux2-klein-style-lora/snow-168-2000.png) |
 
 *같은 프롬프트·시드로 생성한 배경 세 장. 가운데 결과에는 문 위에 글씨가 생겼다. 더 학습한다고 요청한 내용까지 계속 좋아지는 건 아니었다.*
+
+## 정리
 
 내가 보기에는 1,000에서 1,500스텝으로 갔을 때 변화가 더 컸고 2,000스텝에서는 차이가 작았다. 그렇다고 1,500스텝이면 충분하다고 말하기는 어렵다. 네 장면을 시드 하나씩 놓고 본 결과이고 학습에 쓴 이미지와 비슷한 상황도 있었다. 학습용과 평가용 데이터를 따로 나누지도 않았다.
 
