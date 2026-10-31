@@ -1,0 +1,31 @@
+/* Figure layout used only by the FigCraft article series. */
+.prose .figcraft-comparison { overflow-x: auto; align-items: start; }
+.prose .figcraft-comparison img,
+.prose div[style*="position:relative"] img[src^="/blog/figcraft-work-notes/"],
+.prose table img[src^="/blog/figcraft-work-notes/"] { margin: 0; border-radius: 0; }
+.prose table:has(img[src^="/blog/figcraft-work-notes/"]) { display: table; table-layout: fixed; width: 100%; }
+.prose table:has(img[src^="/blog/figcraft-work-notes/"]) th { white-space: normal; }
+.prose table:has(img[src^="/blog/figcraft-work-notes/"]) td { min-width: 0; }
+.prose table img[src^="/blog/figcraft-work-notes/"] { display: block; width: 100%; height: auto; box-sizing: border-box; }
+.prose img[src^="/blog/figcraft-work-notes/"] { background: white; }
+@media (max-width: 640px) {
+ .prose .figcraft-comparison { grid-template-columns: repeat(3, minmax(240px, 1fr)) !important; }
+ .prose .figcraft-comparison:has(> div:nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(300px, 1fr)) !important; }
+ .prose table:has(img[src^="/blog/figcraft-work-notes/"]) th,
+ .prose table:has(img[src^="/blog/figcraft-work-notes/"]) td { padding: .375rem; font-size: .75rem; }
+}
+
+/* Inline color comparison: native radio controls also support keyboard input. */
+.prose .figcraft-color-switch { min-width: 0; margin: 2rem 0; padding: 1rem; border: 1px solid #b5b5b5; border-radius: .5rem; }
+.figcraft-color-switch legend { padding: 0 .5rem; font-weight: 600; }
+.figcraft-color-options { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.figcraft-color-options label { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; border: 1px solid #909ba3; border-radius: .4rem; cursor: pointer; font-size: .875rem; }
+.figcraft-color-options label:has(input:checked) { background: #006f70; color: white; border-color: #006f70; }
+.figcraft-color-options label:focus-within { outline: 2px solid currentColor; outline-offset: 3px; }
+.figcraft-color-options input { accent-color: #006f70; }
+.prose .figcraft-color-panel { display: none; margin: 0; }
+.prose .figcraft-color-panel img { display: block; width: 100%; height: auto; aspect-ratio: 1; margin: 0; border: 0; border-radius: 0; }
+.figcraft-color-panel figcaption { margin-top: .5rem; font-size: .875rem; }
+.figcraft-color-switch:has(input[value="original"]:checked) [data-color="original"],
+.figcraft-color-switch:has(input[value="before"]:checked) [data-color="before"],
+.figcraft-color-switch:has(input[value="after"]:checked) [data-color="after"] { display: block; }
