@@ -24,6 +24,16 @@ ogImageURL.searchParams.set('v', '2');
 
 const pageTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// 검색 결과 사이트 이름 — 없으면 Google이 github.io 를 보고 "GitHub Pages documentation" 으로 표시한다.
+// Google은 홈페이지의 WebSite 데이터만 읽는다.
+const isHome = Astro.url.pathname === '/';
+const websiteJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: new URL('/', Astro.site).href,
+});
 ---
 
 <!doctype html>
@@ -42,6 +52,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_TITLE} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -54,6 +65,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="twitter:title" content={pageTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageURL} />
+
+    {isHome && <script type="application/ld+json" set:html={websiteJsonLd} />}
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/rss.xml" />
